@@ -2,10 +2,12 @@
 
 namespace App\Controller;
 
+use App\Core\View;
+
 class Home {
 
     public function home(){
-        return "Home Page";
+        View::render('app/demo');
     }
 
 

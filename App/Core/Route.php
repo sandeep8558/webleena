@@ -29,12 +29,18 @@ class Route {
     }
 
     public static function get($url, $arr){
+        
         if($url == $_SERVER['REQUEST_URI']){
-            echo $arr[0];
-            echo "<br>";
-            echo $url;
-            echo "<br>";
+
             self::$isRoute = true;
+
+            if(sizeof($arr) >= 2){
+                $model_name = $arr[0];
+                $model = new $model_name;
+                $method = $arr[1];
+                echo $model->$method();
+            }
+
         }
     }
 
