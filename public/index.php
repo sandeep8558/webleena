@@ -1,2 +1,5 @@
-Hello I m webleena
-Hello
+<?php
+
+require_once '../vendor/autoload.php';
+
+require_once '../route.php';

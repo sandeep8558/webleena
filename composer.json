@@ -1,0 +1,17 @@
+{
+    "name": "infoleena/webleena",
+    "description": "CMS",
+    "type": "project",
+    "autoload": {
+        "psr-4": {
+            "App\\": "App/"
+        }
+    },
+    "authors": [
+        {
+            "name": "sandeep8558",
+            "email": "sandeep198558@gmail.com"
+        }
+    ],
+    "require": {}
+}
