@@ -1,0 +1,17 @@
+{
+  "name": "webleena",
+  "version": "1.0.0",
+  "description": "cms",
+  "main": "index.js",
+  "scripts": {},
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/sandeep8558/webleena.git"
+  },
+  "keywords": [
+    "cms"
+  ],
+  "author": "sandeep8558",
+  "license": "ISC",
+  "homepage": "https://github.com/sandeep8558/webleena#readme"
+}

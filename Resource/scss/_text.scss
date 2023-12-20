@@ -1,0 +1,78 @@
+.text-center { text-align: center; }
+.text-left { text-align: left; }
+.text-right { text-align: right; }
+.text-justify { text-align: justify; }
+.text-initial { text-align: initial; }
+.text-inherit { text-align: inherit; }
+
+.text-last-auto { text-align-last: auto; }
+.text-last-left { text-align-last: left; }
+.text-last-right { text-align-last: right; }
+.text-last-center { text-align-last: center; }
+.text-last-justify { text-align-last: justify; }
+.text-last-initial { text-align-last: initial; }
+.text-last-inherit { text-align-last: inherit; }
+.text-last-start { text-align-last: start; }
+.text-last-end { text-align-last: end; }
+
+.text-initial { direction: initial; }
+.text-inherit { direction: inherit; }
+.text-ltr { direction: ltr; }
+.text-rtl { direction: rtl; unicode-bidi: bidi-override; }
+
+.uppercase { text-transform: uppercase; }
+.lowercase { text-transform: lowercase; }
+.capitalize { text-transform: capitalize; }
+
+.text-underline { text-decoration-line: underline; }
+.text-overline { text-decoration-line: overline; }
+.text-line-through { text-decoration-line: line-through; }
+.text-underline-overline { text-decoration-line: overline underline; }
+
+.font-italic { font-style: italic; }
+.font-oblique { font-style: oblique; }
+.font-normal { font-style: normal; }
+
+.font-bold { font-weight: bold; }
+.font-bolder { font-weight: bolder; }
+.font-lighter { font-weight:lighter; }
+.font-normal { font-weight:normal; }
+.font-100 { font-weight:100; }
+.font-200 { font-weight:200; }
+.font-300 { font-weight:300; }
+.font-400 { font-weight:400; }
+.font-500 { font-weight:500; }
+.font-600 { font-weight:600; }
+.font-700 { font-weight:700; }
+.font-800 { font-weight:800; }
+.font-900 { font-weight:900; }
+
+.whitespace-normal { white-space: normal; }
+.whitespace-nowrap { white-space: nowrap; }
+.whitespace-pre { white-space: pre; }
+.whitespace-pre-line { white-space: pre-line; }
+.whitespace-pre-wrap { white-space: pre-wrap; }
+.whitespace-initial { white-space: initial; }
+.whitespace-inherit { white-space: inherit; }
+
+.wordwrap-normal { word-wrap: normal; }
+.wordwrap-break-word { word-wrap: break-word; }
+.wordwrap-initial { word-wrap: initial; }
+.wordwrap-inherit { word-wrap: inherit; }
+
+.wordbreak-normal { word-break: normal; }
+.wordbreak-break-all { word-break: break-all; }
+.wordbreak-keep-all { word-break: keep-all; }
+.wordbreak-break-word { word-break: break-word; }
+.wordbreak-initial { word-break: initial; }
+.wordbreak-inherit { word-break: inherit; }
+
+.font-family-arial { font-family: Arial, sans-serif; }
+.font-family-verdana { font-family: Verdana, sans-serif; }
+.font-family-tahoma { font-family: Tahoma, sans-serif; }
+.font-family-trebuchet { font-family: 'Trebuchet MS', sans-serif; }
+.font-family-times { font-family: 'Times New Roman', serif; }
+.font-family-georgia { font-family: Georgia, serif; }
+.font-family-garamond { font-family: Garamond, serif; }
+.font-family-courier { font-family: 'Courier New', monospace }
+.font-family-brush { font-family: 'Brush Script MT', cursive; }

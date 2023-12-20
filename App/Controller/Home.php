@@ -7,7 +7,8 @@ use App\Core\View;
 class Home {
 
     public function home(){
-        View::render('app/demo');
+        $name = "Sandeep Vilas Rathod";
+        View::render('app/demo', ['name' => $name]);
     }
 
 
