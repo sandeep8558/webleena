@@ -1,0 +1,45 @@
+.outline-none { outline-width: 0px !important; }
+.outline-thin { outline-width: thin !important; }
+.outline-thick { outline-width: thick !important; }
+.outline-medium { outline-width: medium !important; }
+.outline-none { outline-style: none; outline-width: 0px; }
+.outline-hidden { outline-style: hidden; outline-width: 0px; }
+.outline-dotted { outline-style: dotted; outline-width: 0px; }
+.outline-dashed { outline-style: dashed; outline-width: 0px; }
+.outline,
+.outline-solid { outline-style: solid; outline-width: 0px; }
+.outline-double { outline-style: double; outline-width: 0px; }
+.outline-groove { outline-style: groove; outline-width: 0px; }
+.outline-ridge { outline-style: ridge; outline-width: 0px; }
+.outline-inset { outline-style: inset; outline-width: 0px; }
+.outline-outset { outline-style: outset; outline-width: 0px; }
+
+@for $i from 1 through length($sizes) {
+    .outline-#{$i} { outline-width: #{$i}px !important; }
+}
+
+@each $key, $val in $breakpoints{
+    @include breakpoint(#{$key}){
+
+        .outline-none-#{$key} { outline-width: 0px !important; }
+        .outline-thin-#{$key} { outline-width: thin !important; }
+        .outline-thick-#{$key} { outline-width: thick !important; }
+        .outline-medium-#{$key} { outline-width: medium !important; }
+        .outline-none-#{$key} { outline-style: none; outline-width: 0px; }
+        .outline-hidden-#{$key} { outline-style: hidden; outline-width: 0px; }
+        .outline-dotted-#{$key} { outline-style: dotted; outline-width: 0px; }
+        .outline-dashed-#{$key} { outline-style: dashed; outline-width: 0px; }
+        .outline,
+        .outline-solid-#{$key} { outline-style: solid; outline-width: 0px; }
+        .outline-double-#{$key} { outline-style: double; outline-width: 0px; }
+        .outline-groove-#{$key} { outline-style: groove; outline-width: 0px; }
+        .outline-ridge-#{$key} { outline-style: ridge; outline-width: 0px; }
+        .outline-inset-#{$key} { outline-style: inset; outline-width: 0px; }
+        .outline-outset-#{$key} { outline-style: outset; outline-width: 0px; }
+
+        @for $i from 1 through length($sizes) {
+            .outline-#{$i}-#{$key} { outline-width: #{$i}px !important; }
+        }
+
+    }
+}

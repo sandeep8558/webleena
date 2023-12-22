@@ -1,0 +1,100 @@
+.w12-1 { width: #{calc(1*100/12)} + '%' !important; }
+.w12-2 { width: #{calc(2*100/12)} + '%' !important; }
+.w12-3 { width: #{calc(3*100/12)} + '%' !important; }
+.w12-4 { width: #{calc(4*100/12)} + '%' !important; }
+.w12-5 { width: #{calc(5*100/12)} + '%' !important; }
+.w12-6 { width: #{calc(6*100/12)} + '%' !important; }
+.w12-7 { width: #{calc(7*100/12)} + '%' !important; }
+.w12-8 { width: #{calc(8*100/12)} + '%' !important; }
+.w12-9 { width: #{calc(9*100/12)} + '%' !important; }
+.w12-10 { width: #{calc(10*100/12)} + '%' !important; }
+.w12-11 { width: #{calc(11*100/12)} + '%' !important; }
+.w5-1 { width: #{calc(1*100/5)} + '%' !important; }
+.w5-2 { width: #{calc(2*100/5)} + '%' !important; }
+.w5-3 { width: #{calc(3*100/5)} + '%' !important; }
+.w5-4 { width: #{calc(4*100/5)} + '%' !important; }
+
+@for $i from 1 through 100 {
+    .w-#{$i} { width: #{$i} + "%" !important; }
+    .h-#{$i} { height: #{$i} + "%" !important; }
+}
+
+@for $i from 1 through length($sizes) {
+    $s: nth($sizes, $i);
+    $k: calc($i - 1);
+
+    .p-#{$k} { padding: #{$s}rem !important; }
+    .pl-#{$k} { padding-left: #{$s}rem !important; }
+    .pr-#{$k} { padding-right: #{$s}rem !important; }
+    .pt-#{$k} { padding-top: #{$s}rem !important; }
+    .pb-#{$k} { padding-bottom: #{$s}rem !important; }
+    .px-#{$k} { padding-left: #{$s}rem !important; padding-right: #{$s}rem !important; }
+    .py-#{$k} { padding-top: #{$s}rem !important; padding-bottom: #{$s}rem !important; }
+
+    .m-#{$k} { margin: #{$s}rem !important; }
+    .ml-#{$k} { margin-left: #{$s}rem !important; }
+    .mr-#{$k} { margin-right: #{$s}rem !important; }
+    .mt-#{$k} { margin-top: #{$s}rem !important; }
+    .mb-#{$k} { margin-bottom: #{$s}rem !important; }
+    .mx-#{$k} { margin-left: #{$s}rem !important; margin-right: #{$s}rem !important; }
+    .my-#{$k} { margin-top: #{$s}rem !important; margin-bottom: #{$s}rem !important; }
+
+    .font-size-#{$k} { font-size: #{$s}rem !important; }
+    .line-height-#{$k} { line-height: #{$s}rem; }
+    .text-indent-#{$k} { text-indent: #{$s}rem; }
+    .word-spacing-#{$k} { word-spacing: #{$s}rem; }
+    .line-spacing-#{$k} { letter-spacing: #{$s}px; }
+}
+
+.word-spacing { word-spacing: normal; }
+.ls-0 { letter-spacing: 0; }
+
+
+@each $key, $val in $breakpoints{
+    @include breakpoint(#{$key}){
+
+        .w12-1-#{$key} { width: #{calc(1*100/12)} + '%' !important; }
+        .w12-2-#{$key} { width: #{calc(2*100/12)} + '%' !important; }
+        .w12-3-#{$key} { width: #{calc(3*100/12)} + '%' !important; }
+        .w12-4-#{$key} { width: #{calc(4*100/12)} + '%' !important; }
+        .w12-5-#{$key} { width: #{calc(5*100/12)} + '%' !important; }
+        .w12-6-#{$key} { width: #{calc(6*100/12)} + '%' !important; }
+        .w12-7-#{$key} { width: #{calc(7*100/12)} + '%' !important; }
+        .w12-8-#{$key} { width: #{calc(8*100/12)} + '%' !important; }
+        .w12-9-#{$key} { width: #{calc(9*100/12)} + '%' !important; }
+        .w12-10-#{$key} { width: #{calc(10*100/12)} + '%' !important; }
+        .w12-11-#{$key} { width: #{calc(11*100/12)} + '%' !important; }
+        .w5-1-#{$key} { width: #{calc(1*100/5)} + '%' !important; }
+        .w5-2-#{$key} { width: #{calc(2*100/5)} + '%' !important; }
+        .w5-3-#{$key} { width: #{calc(3*100/5)} + '%' !important; }
+        .w5-4-#{$key} { width: #{calc(4*100/5)} + '%' !important; }
+
+        @for $i from 1 through 100 {
+            .w-#{$i}-#{$key} { width: #{$i} + "%" !important; }
+            .h-#{$i}-#{$key} { height: #{$i} + "%" !important; }
+        }
+
+        @for $i from 1 through length($sizes) {
+            $s: nth($sizes, $i);
+            $k: calc($i - 1);
+            
+            .p-#{$k}-#{$key} { padding: #{$s}rem !important; }
+            .pl-#{$k}-#{$key} { padding-left: #{$s}rem !important; }
+            .pr-#{$k}-#{$key} { padding-right: #{$s}rem !important; }
+            .pt-#{$k}-#{$key} { padding-top: #{$s}rem !important; }
+            .pb-#{$k}-#{$key} { padding-bottom: #{$s}rem !important; }
+            .px-#{$k}-#{$key} { padding-left: #{$s}rem !important; padding-right: #{$s}rem !important; }
+            .py-#{$k}-#{$key} { padding-top: #{$s}rem !important; padding-bottom: #{$s}rem !important; }
+
+            .m-#{$k}-#{$key} { margin: #{$s}rem !important; }
+            .ml-#{$k}-#{$key} { margin-left: #{$s}rem !important; }
+            .mr-#{$k}-#{$key} { margin-right: #{$s}rem !important; }
+            .mt-#{$k}-#{$key} { margin-top: #{$s}rem !important; }
+            .mb-#{$k}-#{$key} { margin-bottom: #{$s}rem !important; }
+            .mx-#{$k}-#{$key} { margin-left: #{$s}rem !important; margin-right: #{$s}rem !important; }
+            .my-#{$k}-#{$key} { margin-top: #{$s}rem !important; margin-bottom: #{$s}rem !important; }
+
+            .font-size-#{$k}-#{$key} { font-size: #{$s}rem !important; }
+        }
+    }
+}

@@ -1,0 +1,8 @@
+@mixin breakpoint($bp){
+    $my-map: map-get($breakpoints, $bp);
+    @if $my-map {
+        @media(#{$my-map}){
+            @content;
+        }
+    }
+}

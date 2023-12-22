@@ -1,0 +1,97 @@
+.flex { display: flex; }
+.flex-column { flex-direction: column; }
+.flex-column-reverse { flex-direction: column-reverse; }
+.flex-row { flex-direction: row; }
+.flex-row-reverse { flex-direction: row-reverse; }
+.flex-wrap { flex-wrap: wrap; }
+.flex--wrap-reverse { flex-wrap: wrap-reverse; }
+.flex-nowrap { flex-wrap: nowrap; }
+
+.justify-center { justify-content: center; }
+.justify-start { justify-content: flex-start; }
+.justify-end { justify-content: flex-end; }
+.justify-between { justify-content: space-between; }
+.justify-around { justify-content: space-around; }
+.justify-evenly { justify-content: space-evenly; }
+
+.align-normal { align-items: normal; }
+.align-stretch { align-items: stretch; }
+.align-center { align-items: center; }
+.align-flex-start { align-items: flex-start; }
+.align-flex-end { align-items: flex-end; }
+.align-start { align-items: start; }
+.align-end { align-items: end; }
+.align-baseline { align-items: baseline; }
+
+.align-self-auto { align-self: auto; }
+.align-self-stretch { align-self: stretch; }
+.align-self-center { align-self: center; }
+.align-self-flex-start { align-self: flex-start; }
+.align-self-flex-end { align-self: flex-end; }
+.align-self-baseline { align-self: baseline; }
+
+.align-content-stretch { justify-content: stretch; }
+.align-content-center { justify-content: center; }
+.align-content-start { justify-content: flex-start; }
+.align-content-end { justify-content: flex-end; }
+.align-content-between { justify-content: space-between; }
+.align-content-around { justify-content: space-around; }
+.align-content-evenly { justify-content: space-evenly; }
+
+@for $i from 1 through length($sizes) {
+    $s: nth($sizes, $i);
+    $k: calc($i - 1);
+    .gap-#{$k} { gap: #{$s}rem; }
+}
+
+@each $key, $val in $breakpoints{
+    @include breakpoint(#{$key}){
+
+        .flex-#{$key} { display: flex; }
+        .flex-column-#{$key} { flex-direction: column; }
+        .flex-column-reverse-#{$key} { flex-direction: column-reverse; }
+        .flex-row-#{$key} { flex-direction: row; }
+        .flex-row-reverse-#{$key} { flex-direction: row-reverse; }
+        .flex-wrap-#{$key} { flex-wrap: wrap; }
+        .flex--wrap-reverse-#{$key} { flex-wrap: wrap-reverse; }
+        .flex-nowrap-#{$key} { flex-wrap: nowrap; }
+
+        .justify-center-#{$key} { justify-content: center; }
+        .justify-start-#{$key} { justify-content: flex-start; }
+        .justify-end-#{$key} { justify-content: flex-end; }
+        .justify-between-#{$key} { justify-content: space-between; }
+        .justify-around-#{$key} { justify-content: space-around; }
+        .justify-evenly-#{$key} { justify-content: space-evenly; }
+
+        .align-normal-#{$key} { align-items: normal; }
+        .align-stretch-#{$key} { align-items: stretch; }
+        .align-center-#{$key} { align-items: center; }
+        .align-flex-start-#{$key} { align-items: flex-start; }
+        .align-flex-end-#{$key} { align-items: flex-end; }
+        .align-start-#{$key} { align-items: start; }
+        .align-end-#{$key} { align-items: end; }
+        .align-baseline-#{$key} { align-items: baseline; }
+
+        .align-self-auto-#{$key} { align-self: auto; }
+        .align-self-stretch-#{$key} { align-self: stretch; }
+        .align-self-center-#{$key} { align-self: center; }
+        .align-self-flex-start-#{$key} { align-self: flex-start; }
+        .align-self-flex-end-#{$key} { align-self: flex-end; }
+        .align-self-baseline-#{$key} { align-self: baseline; }
+
+        .align-content-stretch-#{$key} { justify-content: stretch; }
+        .align-content-center-#{$key} { justify-content: center; }
+        .align-content-start-#{$key} { justify-content: flex-start; }
+        .align-content-end-#{$key} { justify-content: flex-end; }
+        .align-content-between-#{$key} { justify-content: space-between; }
+        .align-content-around-#{$key} { justify-content: space-around; }
+        .align-content-evenly-#{$key} { justify-content: space-evenly; }
+
+        @for $i from 1 through length($sizes) {
+            $s: nth($sizes, $i);
+            $k: calc($i - 1);
+            .gap-#{$k}-#{$key} { gap: #{$s}rem; }
+        }
+
+    }
+}

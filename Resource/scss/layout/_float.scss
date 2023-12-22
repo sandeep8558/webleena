@@ -1,0 +1,39 @@
+.row {
+
+    position: relative;
+    width: auto;
+    font-size: 0rem !important;
+
+    > .col {
+        vertical-align: top;
+        text-align: left;
+        font-size: 15px;
+        display: inline-block;
+        width: fit-content;
+    }
+
+    &-top > .col {
+        vertical-align: top !important;
+    }
+
+    &-bottom > .col {
+        vertical-align: bottom !important;
+    }
+
+    &-middle > .col {
+        vertical-align: middle !important;
+    }
+
+    &-left {
+        text-align: left !important;
+    }
+
+    &-right {
+        text-align: right !important;
+    }
+
+    &-center {
+        text-align: center !important;
+    }
+
+}

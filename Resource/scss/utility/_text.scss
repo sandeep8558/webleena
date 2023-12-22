@@ -1,0 +1,126 @@
+.text-center { text-align: center !important; }
+.text-left { text-align: left !important; }
+.text-right { text-align: right !important; }
+.text-justify { text-align: justify !important; }
+.text-last-auto { text-align-last: auto !important; }
+.text-last-left { text-align-last: left !important; }
+.text-last-right { text-align-last: right !important; }
+.text-last-center { text-align-last: center !important; }
+.text-last-justify { text-align-last: justify !important; }
+.text-last-start { text-align-last: start !important; }
+.text-last-end { text-align-last: end !important; }
+.text-ltr { direction: ltr !important; }
+.text-rtl { direction: rtl !important; unicode-bidi: bidi-override; }
+
+.uppercase { text-transform: uppercase; }
+.lowercase { text-transform: lowercase; }
+.capitalize { text-transform: capitalize; }
+.text-decoration-none { text-decoration: none; }
+.text-underline { text-decoration-line: underline; }
+.text-overline { text-decoration-line: overline; }
+.text-line-through { text-decoration-line: line-through; }
+.text-underline-overline { text-decoration-line: overline underline; }
+.font-italic { font-style: italic; }
+.font-oblique { font-style: oblique; }
+.font-normal { font-style: normal; }
+.font-bold { font-weight: bold; }
+.font-bolder { font-weight: bolder; }
+.font-lighter { font-weight:lighter; }
+.font-normal { font-weight:normal; }
+.font-100 { font-weight:100; }
+.font-200 { font-weight:200; }
+.font-300 { font-weight:300; }
+.font-400 { font-weight:400; }
+.font-500 { font-weight:500; }
+.font-600 { font-weight:600; }
+.font-700 { font-weight:700; }
+.font-800 { font-weight:800; }
+.font-900 { font-weight:900; }
+.whitespace-normal { white-space: normal; }
+.whitespace-nowrap { white-space: nowrap; }
+.whitespace-pre { white-space: pre; }
+.whitespace-pre-line { white-space: pre-line; }
+.whitespace-pre-wrap { white-space: pre-wrap; }
+.whitespace-initial { white-space: initial; }
+.whitespace-inherit { white-space: inherit; }
+.wordwrap-normal { word-wrap: normal; }
+.wordwrap-break-word { word-wrap: break-word; }
+.wordwrap-initial { word-wrap: initial; }
+.wordwrap-inherit { word-wrap: inherit; }
+.wordbreak-normal { word-break: normal; }
+.wordbreak-break-all { word-break: break-all; }
+.wordbreak-keep-all { word-break: keep-all; }
+.wordbreak-break-word { word-break: break-word; }
+
+.font-family-arial { font-family: Arial, sans-serif; }
+.font-family-verdana { font-family: Verdana, sans-serif; }
+.font-family-tahoma { font-family: Tahoma, sans-serif; }
+.font-family-trebuchet { font-family: 'Trebuchet MS', sans-serif; }
+.font-family-times { font-family: 'Times New Roman', serif; }
+.font-family-georgia { font-family: Georgia, serif; }
+.font-family-garamond { font-family: Garamond, serif; }
+.font-family-courier { font-family: 'Courier New', monospace }
+.font-family-brush { font-family: 'Brush Script MT', cursive; }
+
+@each $key, $val in $breakpoints{
+    @include breakpoint(#{$key}){
+
+        .text-center-#{$key} { text-align: center !important; }
+        .text-left-#{$key} { text-align: left !important; }
+        .text-right-#{$key} { text-align: right !important; }
+        .text-justify-#{$key} { text-align: justify !important; }
+        .text-last-auto-#{$key} { text-align-last: auto !important; }
+        .text-last-left-#{$key} { text-align-last: left !important; }
+        .text-last-right-#{$key} { text-align-last: right !important; }
+        .text-last-center-#{$key} { text-align-last: center !important; }
+        .text-last-justify-#{$key} { text-align-last: justify !important; }
+        .text-last-initial-#{$key} { text-align-last: initial !important; }
+        .text-last-inherit-#{$key} { text-align-last: inherit !important; }
+        .text-last-start-#{$key} { text-align-last: start !important; }
+        .text-last-end-#{$key} { text-align-last: end !important; }
+        .text-ltr-#{$key} { direction: ltr !important; }
+        .text-rtl-#{$key} { direction: rtl !important; unicode-bidi: bidi-override; }
+
+        .uppercase-#{$key} { text-transform: uppercase; }
+        .lowercase-#{$key} { text-transform: lowercase; }
+        .capitalize-#{$key} { text-transform: capitalize; }
+        .text-decoration-none-#{$key} { text-decoration: none; }
+        .text-underline-#{$key} { text-decoration-line: underline; }
+        .text-overline-#{$key} { text-decoration-line: overline; }
+        .text-line-through-#{$key} { text-decoration-line: line-through; }
+        .text-underline-overline-#{$key} { text-decoration-line: overline underline; }
+        .font-italic-#{$key} { font-style: italic; }
+        .font-oblique-#{$key} { font-style: oblique; }
+        .font-normal-#{$key} { font-style: normal; }
+        .font-bold-#{$key} { font-weight: bold; }
+        .font-bolder-#{$key} { font-weight: bolder; }
+        .font-lighter-#{$key} { font-weight:lighter; }
+        .font-normal-#{$key} { font-weight:normal; }
+        .font-100-#{$key} { font-weight:100; }
+        .font-200-#{$key} { font-weight:200; }
+        .font-300-#{$key} { font-weight:300; }
+        .font-400-#{$key} { font-weight:400; }
+        .font-500-#{$key} { font-weight:500; }
+        .font-600-#{$key} { font-weight:600; }
+        .font-700-#{$key} { font-weight:700; }
+        .font-800-#{$key} { font-weight:800; }
+        .font-900-#{$key} { font-weight:900; }
+        .whitespace-normal-#{$key} { white-space: normal; }
+        .whitespace-nowrap-#{$key} { white-space: nowrap; }
+        .whitespace-pre-#{$key} { white-space: pre; }
+        .whitespace-pre-line-#{$key} { white-space: pre-line; }
+        .whitespace-pre-wrap-#{$key} { white-space: pre-wrap; }
+        .whitespace-initial-#{$key} { white-space: initial; }
+        .whitespace-inherit-#{$key} { white-space: inherit; }
+        .wordwrap-normal-#{$key} { word-wrap: normal; }
+        .wordwrap-break-word-#{$key} { word-wrap: break-word; }
+        .wordwrap-initial-#{$key} { word-wrap: initial; }
+        .wordwrap-inherit-#{$key} { word-wrap: inherit; }
+        .wordbreak-normal-#{$key} { word-break: normal; }
+        .wordbreak-break-all-#{$key} { word-break: break-all; }
+        .wordbreak-keep-all-#{$key} { word-break: keep-all; }
+        .wordbreak-break-word-#{$key} { word-break: break-word; }
+        .wordbreak-initial-#{$key} { word-break: initial; }
+        .wordbreak-inherit-#{$key} { word-break: inherit; }
+    }
+}

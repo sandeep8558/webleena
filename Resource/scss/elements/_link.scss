@@ -1,0 +1,95 @@
+.link {
+    @extend .text-dark, .text-decoration-none;
+    padding: 0.75rem 1.75rem;
+    font-size: 1.25rem;
+    /* color: $dark;
+    text-decoration-line: none; */
+
+    &:hover {
+        color: darken($dark, 10);
+        text-decoration-line: underline !important;
+    }
+
+    &-sm {
+        padding: 0.85rem 1.9rem;
+        font-size: 1.5rem;
+    }
+
+    &-md {
+        padding: 1rem 2rem;
+        font-size: 1.75rem;
+    }
+
+    &-lg {
+        padding: 1rem 2rem;
+        font-size: 2rem;
+    }
+
+    &-xl {
+        padding: 1rem 2rem;
+        font-size: 2.5rem;
+    }
+
+    &-xxl {
+        padding: 1rem 2rem;
+        font-size: 3rem;
+    }
+
+    @each $name, $color in $colors {
+    
+        &-#{$name} {
+            color: $color;
+
+            &:hover {
+                color: darken($color, 10);
+                text-decoration-line: underline !important;
+            }
+        }
+    
+    }
+
+    @each $key, $val in $breakpoints{
+        @include breakpoint(#{$key}){
+
+            &-sm-#{$key} {
+                padding: 0.75rem 1.5rem;
+                font-size: 1.25rem;
+            }
+        
+            &-md-#{$key} {
+                padding: 1rem 2rem;
+                font-size: 1.75rem;
+            }
+        
+            &-lg-#{$key} {
+                padding: 1rem 2rem;
+                font-size: 2rem;
+            }
+        
+            &-xl-#{$key} {
+                padding: 1rem 2rem;
+                font-size: 2.5rem;
+            }
+        
+            &-xxl-#{$key} {
+                padding: 1rem 2rem;
+                font-size: 3rem;
+            }
+        
+            @each $name, $color in $colors {
+            
+                &-#{$name}-#{$key} {
+                    color: $color;
+        
+                    &:hover {
+                        color: darken($color, 10);
+                        text-decoration-line: underline !important;
+                    }
+                }
+            
+            }
+
+        }
+    }
+
+}

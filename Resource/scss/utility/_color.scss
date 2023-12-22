@@ -1,0 +1,43 @@
+@each $name, $color in $colors {
+    
+    .text-#{$name} {
+        color: $color;
+    }
+
+    .bg-#{$name} {
+        background-color: $color;
+    }
+
+    .border-#{$name} {
+        border-color: $color;
+    }
+
+    .outline-#{$name} {
+        outline-color: $color;
+    }
+
+}
+
+
+
+@each $key, $val in $breakpoints{
+    @include breakpoint(#{$key}){
+        @each $name, $color in $colors {
+            .text-#{$name}-#{$key} {
+                color: $color !important;
+            }
+
+            .bg-#{$name}-#{$key} {
+                background-color: $color !important;
+            }
+
+            .border-#{$name}-#{$key} {
+                border-color: $color !important;
+            }
+
+            .outline-#{$name}-#{$key} {
+                outline-color: $color !important;
+            }
+        }
+    }
+}

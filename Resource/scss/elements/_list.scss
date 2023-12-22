@@ -1,0 +1,12 @@
+ul.list {
+    margin: 0;
+    list-style: none;
+    li {
+        border: 1px solid $light;
+        padding: 5px;
+
+        &:nth-child(even) {
+            background-color: $light;
+        }
+    }
+}

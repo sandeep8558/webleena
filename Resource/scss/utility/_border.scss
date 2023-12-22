@@ -1,0 +1,83 @@
+@for $i from 1 through length($sizes) {
+    .border-#{$i} { border-width: #{$i}px !important; }
+    .borderl-#{$i} { border-left-width: #{$i}px !important; }
+    .borderr-#{$i} { border-right-width: #{$i}px !important; }
+    .bordert-#{$i} { border-top-width: #{$i}px !important; }
+    .borderb-#{$i} { border-bottom-width: #{$i}px !important; }
+    .borderx-#{$i} { border-left-width: #{$i}px !important; border-right-width: #{$i}px !important; }
+    .bordery-#{$i} { border-top-width: #{$i}px !important; border-bottom-width: #{$i}px !important; }
+
+    .rounded-#{$i} { border-radius: #{$i}px !important; }
+    .rounded-left-#{$i} { border-top-left-radius: #{$i}px !important; border-bottom-left-radius: #{$i}px !important; }
+    .rounded-right-#{$i} { border-top-right-radius: #{$i}px !important; border-bottom-right-radius: #{$i}px !important; }
+    .rounded-top-#{$i} { border-top-left-radius: #{$i}px !important; border-top-right-radius: #{$i}px !important; }
+    .rounded-bottom-#{$i} { border-bottom-left-radius: #{$i}px !important; border-bottom-right-radius: #{$i}px !important; }
+    .rounded-top-left-#{$i} { border-top-left-radius: #{$i}px !important; }
+    .rounded-top-right-#{$i} { border-top-right-radius: #{$i}px !important; }
+    .rounded-bottom-left-#{$i} { border-bottom-left-radius: #{$i}px !important; }
+    .rounded-bottom-right-#{$i} { border-bottom-right-radius: #{$i}px !important; }
+}
+
+.border-none { border-width: 0px !important; }
+.border-thin { border-width: thin !important; }
+.border-thick { border-width: thick !important; }
+.border-medium { border-width: medium !important; }
+.border-none { border-style: none; border-width: 0px !important; }
+.border-hidden { border-style: hidden; border-width: 0px; }
+.border-dotted { border-style: dotted; border-width: 0px; }
+.border-dashed { border-style: dashed; border-width: 0px; }
+.border,
+.border-solid { border-style: solid; border-width: 0px; }
+.border-double { border-style: double; border-width: 0px; }
+.border-groove { border-style: groove; border-width: 0px; }
+.border-ridge { border-style: ridge; border-width: 0px; }
+.border-inset { border-style: inset; border-width: 0px; }
+.border-outset { border-style: outset; border-width: 0px; }
+
+.rounded-none { border-radius: 0px !important; }
+.rounded-full { border-radius: 2000px; }
+
+@each $key, $val in $breakpoints{
+    @include breakpoint(#{$key}){
+
+        @for $i from 1 through length($sizes) {
+            .border-#{$i}-#{$key} { border-width: #{$i}px !important; }
+            .borderl-#{$i}-#{$key} { border-left-width: #{$i}px !important; }
+            .borderr-#{$i}-#{$key} { border-right-width: #{$i}px !important; }
+            .bordert-#{$i}-#{$key} { border-top-width: #{$i}px !important; }
+            .borderb-#{$i}-#{$key} { border-bottom-width: #{$i}px !important; }
+            .borderx-#{$i}-#{$key} { border-left-width: #{$i}px !important; border-right-width: #{$i}px !important; }
+            .bordery-#{$i}-#{$key} { border-top-width: #{$i}px !important; border-bottom-width: #{$i}px !important; }
+
+            .rounded-#{$i}-#{$key} { border-radius: #{$i}px !important; }
+            .rounded-left-#{$i}-#{$key} { border-top-left-radius: #{$i}px !important; border-bottom-left-radius: #{$i}px !important; }
+            .rounded-right-#{$i}-#{$key} { border-top-right-radius: #{$i}px !important; border-bottom-right-radius: #{$i}px !important; }
+            .rounded-top-#{$i}-#{$key} { border-top-left-radius: #{$i}px !important; border-top-right-radius: #{$i}px !important; }
+            .rounded-bottom-#{$i}-#{$key} { border-bottom-left-radius: #{$i}px !important; border-bottom-right-radius: #{$i}px !important; }
+            .rounded-top-left-#{$i}-#{$key} { border-top-left-radius: #{$i}px !important; }
+            .rounded-top-right-#{$i}-#{$key} { border-top-right-radius: #{$i}px !important; }
+            .rounded-bottom-left-#{$i}-#{$key} { border-bottom-left-radius: #{$i}px !important; }
+            .rounded-bottom-right-#{$i}-#{$key} { border-bottom-right-radius: #{$i}px !important; }
+        }
+
+        .border-none-#{$key} { border-width: 0px !important; }
+        .border-thin-#{$key} { border-width: thin !important; }
+        .border-thick-#{$key} { border-width: thick !important; }
+        .border-medium-#{$key} { border-width: medium !important; }
+        .border-none-#{$key} { border-style: none; border-width: 0px; }
+        .border-hidden-#{$key} { border-style: hidden; border-width: 0px; }
+        .border-dotted-#{$key} { border-style: dotted; border-width: 0px; }
+        .border-dashed-#{$key} { border-style: dashed; border-width: 0px; }
+        .border,
+        .border-solid-#{$key} { border-style: solid; border-width: 0px; }
+        .border-double-#{$key} { border-style: double; border-width: 0px; }
+        .border-groove-#{$key} { border-style: groove; border-width: 0px; }
+        .border-ridge-#{$key} { border-style: ridge; border-width: 0px; }
+        .border-inset-#{$key} { border-style: inset; border-width: 0px; }
+        .border-outset-#{$key} { border-style: outset; border-width: 0px; }
+
+        .rounded-none-#{$key} { border-radius: 0px !important; }
+        .rounded-full-#{$key} { border-radius: 2000px; }
+
+    }
+}

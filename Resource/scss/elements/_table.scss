@@ -1,0 +1,16 @@
+.table {
+    @extend .w-100;
+
+    td, th {
+        padding: 5px;
+        border: 1px solid $light;
+    }
+
+    &-collapse {
+        border-collapse: collapse !important;
+    }
+
+    &-separate {
+        border-collapse: separate !important;
+    }
+}

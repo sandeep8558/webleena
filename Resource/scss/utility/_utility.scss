@@ -1,0 +1,95 @@
+.v-baseline { vertical-align: baseline; }
+.v-sub { vertical-align: sub; }
+.v-super { vertical-align: super; }
+.v-top { vertical-align: top; }
+.v-text-top { vertical-align: text-top; }
+.v-middle { vertical-align: middle; }
+.v-bottom { vertical-align: bottom; }
+.v-text-bottom { vertical-align: text-bottom; }
+
+.absolute { position: absolute; }
+.relative { position: relative; }
+.fixed { position: fixed; }
+.static { position: static; }
+.sticky { position: sticky; }
+
+.overflow-visible { overflow: visible; }
+.overflow-hidden { overflow: hidden; }
+.overflow-clip { overflow: clip; }
+.overflow-scroll { overflow: scroll; }
+.overflow-auto { overflow: auto; }
+.overflow-wrap-normal { overflow-wrap: normal; }
+.overflow-wrap-anywhere { overflow-wrap: anywhere; }
+.overflow-wrap-break-word { overflow-wrap: break-word; }
+
+.opacity-0 { opacity: 0; }
+@for $i from 1 through 100 {
+    $s: calc($i/100);
+    .opacity-#{$i} { opacity: #{$s}; }
+}
+
+.float-none { float:none; }
+.float-left { float:left; }
+.float-right { float:right; }
+.clear-none { clear: none; }
+.clear-left { clear: left; }
+.clear-right { clear: right; }
+.clear-both { clear: both; }
+
+.z--10 { z-index: -9999; }
+.z--9 { z-index: -6000; }
+.z--8 { z-index: -5000; }
+.z--7 { z-index: -4000; }
+.z--6 { z-index: -3000; }
+.z--5 { z-index: -2000; }
+.z--4 { z-index: -1000; }
+.z--3 { z-index: -100; }
+.z--2 { z-index: -10; }
+.z--1 { z-index: -1; }
+.z-0 { z-index: 0; }
+.z-1 { z-index: 1; }
+.z-2 { z-index: 10; }
+.z-3 { z-index: 100; }
+.z-4 { z-index: 1000; }
+.z-5 { z-index: 2000; }
+.z-6 { z-index: 3000; }
+.z-7 { z-index: 4000; }
+.z-8 { z-index: 5000; }
+.z-9 { z-index: 6000; }
+.z-10 { z-index: 9999; }
+
+@each $key, $val in $breakpoints{
+    @include breakpoint(#{$key}){
+
+        .v-baseline-#{$key} { vertical-align: baseline; }
+        .v-sub-#{$key} { vertical-align: sub; }
+        .v-super-#{$key} { vertical-align: super; }
+        .v-top-#{$key} { vertical-align: top; }
+        .v-text-top-#{$key} { vertical-align: text-top; }
+        .v-middle-#{$key} { vertical-align: middle; }
+        .v-bottom-#{$key} { vertical-align: bottom; }
+        .v-text-bottom-#{$key} { vertical-align: text-bottom; }
+
+        .absolute-#{$key} { position: absolute; }
+        .relative-#{$key} { position: relative; }
+        .fixed-#{$key} { position: fixed; }
+        .static-#{$key} { position: static; }
+        .sticky-#{$key} { position: sticky; }
+
+        .overflow-visible-#{$key} { overflow: visible; }
+        .overflow-hidden-#{$key} { overflow: hidden; }
+        .overflow-clip-#{$key} { overflow: clip; }
+        .overflow-scroll-#{$key} { overflow: scroll; }
+        .overflow-auto-#{$key} { overflow: auto; }
+        .overflow-wrap-normal-#{$key} { overflow-wrap: normal; }
+        .overflow-wrap-anywhere-#{$key} { overflow-wrap: anywhere; }
+        .overflow-wrap-break-word-#{$key} { overflow-wrap: break-word; }
+
+        .opacity-0-#{$key} { opacity: 0; }
+        @for $i from 1 through 100 {
+            $s: calc($i/100);
+            .opacity-#{$i}-#{$key} { opacity: #{$s}; }
+        }
+
+    }
+}

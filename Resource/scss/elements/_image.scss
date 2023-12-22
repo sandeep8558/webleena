@@ -1,0 +1,142 @@
+/* Images Styling Start */
+.image {
+    position: relative;
+    overflow: hidden;
+    text-align: left;
+}
+
+.image img {
+    position: absolute;
+    height: 100%;
+    width: 100%;
+    -o-object-position: center;
+    object-position: center;
+}
+
+.image-none img {
+    -o-object-fit: none;
+    object-fit: none;
+}
+
+.image-contain img {
+    -o-object-fit: contain;
+    object-fit: contain;
+}
+
+.image-cover img {
+    -o-object-fit: cover;
+    object-fit: cover;
+}
+
+.image-fill img {
+    -o-object-fit: fill;
+    object-fit: fill;
+}
+
+.image-scale-down img {
+    -o-object-fit: scale-down;
+    object-fit: scale-down;
+}
+
+/* Standard Aspect Ratios */
+.image-title {
+    padding-bottom: 25%;
+}
+.image-header {
+    padding-bottom: 35%;
+}
+.image-banner {
+    padding-bottom: 50%;
+}
+.image-wide {
+    padding-bottom: 54%;
+}
+.image-hd {
+    padding-bottom: 56.25%;
+}
+.image-standard {
+    padding-bottom: 60%;
+}
+.image-still {
+    padding-bottom: 66.66%;
+}
+.image-tv {
+    padding-bottom: 75%;
+}
+.image-camera {
+    padding-bottom: 80%;
+}
+.image-square {
+    padding-bottom: 100%;
+}
+.image-closeup {
+    padding-bottom: 125%;
+}
+.image-portrait {
+    padding-bottom: 135%;
+}
+.image-vertical {
+    padding-bottom: 150%;
+}
+
+@for $i from 1 through 200 {
+    .image-#{$i} { padding-bottom: #{$i} + "%"; }
+}
+
+@for $i from 1 through 100 {
+    .image-vh-#{$i} { padding-bottom: #{$i} + "vh"; }
+}
+
+@each $key, $val in $breakpoints{
+    @include breakpoint(#{$key}){
+
+        .image-title-#{$key} {
+            padding-bottom: 25%;
+        }
+        .image-header-#{$key} {
+            padding-bottom: 35%;
+        }
+        .image-banner-#{$key} {
+            padding-bottom: 50%;
+        }
+        .image-wide-#{$key} {
+            padding-bottom: 54%;
+        }
+        .image-hd-#{$key} {
+            padding-bottom: 56.25%;
+        }
+        .image-standard-#{$key} {
+            padding-bottom: 60%;
+        }
+        .image-still-#{$key} {
+            padding-bottom: 66.66%;
+        }
+        .image-tv-#{$key} {
+            padding-bottom: 75%;
+        }
+        .image-camera-#{$key} {
+            padding-bottom: 80%;
+        }
+        .image-square-#{$key} {
+            padding-bottom: 100%;
+        }
+        .image-closeup-#{$key} {
+            padding-bottom: 125%;
+        }
+        .image-portrait-#{$key} {
+            padding-bottom: 135%;
+        }
+        .image-vertical-#{$key} {
+            padding-bottom: 150%;
+        }
+
+        @for $i from 1 through 200 {
+            .image-#{$i}-#{$key} { padding-bottom: #{$i} + "%"; }
+        }
+        
+        @for $i from 1 through 100 {
+            .image-vh-#{$i}-#{$key} { padding-bottom: #{$i} + "vh"; }
+        }
+
+    }
+}
