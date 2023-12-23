@@ -1,10 +1,21 @@
-@layout('layouts/app')
-
-@section('head')
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="app.css">
+    <script src="/js/app.js"></script>
+    
 <title>Login</title>
-@endsection('head')
 
-@section('body')
+</head>
+<body>
+
+<?php
+include '../Resource/View/layouts/header.php';
+?>
+
+
 
 <div class="container-full vh-100 flex justify-center align-center p-10">
     <div class="w-100 w-80-sm w-60-md w-50-lg w-40-xl w-30-xxl">
@@ -37,4 +48,7 @@
 
 </div>
 
-@endsection('body')
+
+
+</body>
+</html>

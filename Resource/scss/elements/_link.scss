@@ -1,7 +1,7 @@
 .link {
     @extend .text-dark, .text-decoration-none;
     padding: 0.75rem 1.75rem;
-    font-size: 1.25rem;
+    font-size: 1rem;
     /* color: $dark;
     text-decoration-line: none; */
 
@@ -12,27 +12,27 @@
 
     &-sm {
         padding: 0.85rem 1.9rem;
-        font-size: 1.5rem;
+        font-size: 1.25rem;
     }
 
     &-md {
         padding: 1rem 2rem;
-        font-size: 1.75rem;
+        font-size: 1.5rem;
     }
 
     &-lg {
         padding: 1rem 2rem;
-        font-size: 2rem;
+        font-size: 1.75rem;
     }
 
     &-xl {
         padding: 1rem 2rem;
-        font-size: 2.5rem;
+        font-size: 2rem;
     }
 
     &-xxl {
         padding: 1rem 2rem;
-        font-size: 3rem;
+        font-size: 2.5rem;
     }
 
     @each $name, $color in $colors {
@@ -58,22 +58,22 @@
         
             &-md-#{$key} {
                 padding: 1rem 2rem;
-                font-size: 1.75rem;
+                font-size: 1.5rem;
             }
         
             &-lg-#{$key} {
                 padding: 1rem 2rem;
-                font-size: 2rem;
+                font-size: 1.75rem;
             }
         
             &-xl-#{$key} {
                 padding: 1rem 2rem;
-                font-size: 2.5rem;
+                font-size: 2rem;
             }
         
             &-xxl-#{$key} {
                 padding: 1rem 2rem;
-                font-size: 3rem;
+                font-size: 2.5rem;
             }
         
             @each $name, $color in $colors {

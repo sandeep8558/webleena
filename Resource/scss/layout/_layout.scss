@@ -22,33 +22,33 @@
 
 }
 
-.d-block { display: block; }
-.d-compact { display: compact; }
-.d-grid { display: grid; }
-.d-inline { display: inline; }
-.d-inline-block { display: inline-block; }
-.d-inline-flex { display: inline-flex; }
-.d-inline-grid { display: inline-grid; }
-.d-inline-table { display: inline-table; }
-.d-list-item { display: list-item; }
-.d-marker { display: marker; }
-.d-none { display: none; }
-.d-run-in { display: run-in; }
+.d-block { display: block !important; }
+.d-compact { display: compact !important; }
+.d-grid { display: grid !important; }
+.d-inline { display: inline !important; }
+.d-inline-block { display: inline-block !important; }
+.d-inline-flex { display: inline-flex !important; }
+.d-inline-grid { display: inline-grid !important; }
+.d-inline-table { display: inline-table !important; }
+.d-list-item { display: list-item !important; }
+.d-marker { display: marker !important; }
+.d-none { display: none !important; }
+.d-run-in { display: run-in !important; }
 
 
 @each $key, $val in $breakpoints{
     @include breakpoint(#{$key}){
-        .d-block-#{$key} { display: block; }
-        .d-compact-#{$key} { display: compact; }
-        .d-grid-#{$key} { display: grid; }
-        .d-inline-#{$key} { display: inline; }
-        .d-inline-block-#{$key} { display: inline-block; }
-        .d-inline-flex-#{$key} { display: inline-flex; }
-        .d-inline-grid-#{$key} { display: inline-grid; }
-        .d-inline-table-#{$key} { display: inline-table; }
-        .d-list-item-#{$key} { display: list-item; }
-        .d-marker-#{$key} { display: marker; }
-        .d-none-#{$key} { display: none; }
-        .d-run-in-#{$key} { display: run-in; }
+        .d-block-#{$key} { display: block !important; }
+        .d-compact-#{$key} { display: compact !important; }
+        .d-grid-#{$key} { display: grid !important; }
+        .d-inline-#{$key} { display: inline !important; }
+        .d-inline-block-#{$key} { display: inline-block !important; }
+        .d-inline-flex-#{$key} { display: inline-flex !important; }
+        .d-inline-grid-#{$key} { display: inline-grid !important; }
+        .d-inline-table-#{$key} { display: inline-table !important; }
+        .d-list-item-#{$key} { display: list-item !important; }
+        .d-marker-#{$key} { display: marker !important; }
+        .d-none-#{$key} { display: none !important; }
+        .d-run-in-#{$key} { display: run-in !important; }
     }
 }

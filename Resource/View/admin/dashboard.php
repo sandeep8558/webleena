@@ -1,7 +1,7 @@
-@layout('layouts/app')
+@layout('layouts/admin')
 
 @section('head')
-<title>Demo Page</title>
+<title>Dashboard</title>
 @endsection('head')
 
 @section('body')

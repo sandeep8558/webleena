@@ -17,6 +17,7 @@
 @for $i from 1 through 100 {
     .w-#{$i} { width: #{$i} + "%" !important; }
     .h-#{$i} { height: #{$i} + "%" !important; }
+    .vh-#{$i} { height: #{$i}vh !important; }
 }
 
 @for $i from 1 through length($sizes) {

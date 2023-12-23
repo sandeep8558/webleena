@@ -13,7 +13,7 @@ class View {
         
         $file = '../Resource/View/' . $view . '.php';
         
-        include 'Functions.php';
+        include_once 'Functions.php';
 
         $content = file_get_contents($file);
 
