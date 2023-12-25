@@ -1,6 +1,7 @@
 <?php
 
 namespace App\Core;
+use App\Core\Request;
 
 class Route {
 
@@ -30,7 +31,7 @@ class Route {
 
     public static function get($url, $arr){
         
-        if($url == $_SERVER['REQUEST_URI']){
+        if($url == $_SERVER['REDIRECT_URL']){
 
             self::$isRoute = true;
 

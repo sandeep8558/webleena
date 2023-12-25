@@ -15,8 +15,6 @@ $element = [
         "state" => "text",
         "country" => "text",
         "note" => "textarea",
-    ],
-
-    /* text | textarea | file | email | password | switch | link | color */
-
+        "primary" => "color"
+    ]
 ];

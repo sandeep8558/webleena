@@ -12,5 +12,4 @@ class Home extends Controller {
         View::render('app/demo', ['name' => $name]);
     }
 
-
 }

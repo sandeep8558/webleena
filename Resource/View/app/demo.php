@@ -6,4 +6,6 @@
 
 @section('body')
 
+
+
 @endsection('body')

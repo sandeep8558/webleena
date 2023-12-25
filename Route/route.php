@@ -16,4 +16,6 @@ Route::get('/dashboard', ['App\Controller\Admin', 'dashboard']);
 
 Route::get('/settings', ['App\Controller\Admin', 'settings']);
 
+Route::get('/api/data/save', ['App\Controller\CrudController', 'save']);
+
 Route::end();

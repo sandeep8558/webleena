@@ -65,3 +65,12 @@ function input($field, $name, $val){
     }
     return $input;
 }
+
+function parseInterpolation($data){
+    $dt = gettype($data);
+    if($dt == 'string') {
+        echo $data;
+    } else {
+        echo json_encode($data);
+    }
+}

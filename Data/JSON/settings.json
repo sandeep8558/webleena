@@ -1,14 +1,16 @@
 {
-    "brand": "",
-    "tag": "",
-    "email": "",
-    "mobile": "",
-    "logo": "",
-    "favicon": "",
-    "address": "",
-    "city": "",
-    "pincode": "",
-    "state": "",
-    "country": "",
-    "note": ""
+    "brand": "Royce Enterprise",
+    "tag": "Your Problem Our Solutions",
+    "email": "info@webleena.com",
+    "mobile": "9664588677",
+    "logo": "\/images\/1703540171_219577_pumpkin.jpg",
+    "favicon": "\/images\/1703540187_582886_lemon.jpg",
+    "address": "Plot No 65",
+    "city": "Ambernath",
+    "pincode": "421501",
+    "state": "Maharashtra",
+    "country": "India",
+    "note": "Thank you for support\n",
+    "primary": "#FFFFFF",
+    "": null
 }

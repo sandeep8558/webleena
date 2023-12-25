@@ -17,7 +17,8 @@ class View {
 
         $content = file_get_contents($file);
 
-        $content = preg_replace('/{{\s*(.+?)\s*}}/', '<?php echo $1; ?>', $content);
+        $content = preg_replace('/{{{\s*(.+?)\s*}}}/', '<?php parseInterpolation($1) ?>', $content);
+
         $content = preg_replace('/@if\(\s*(.+?)\s*\)/', '<?php if($1): ?>', $content);
         $content = preg_replace('/@else/', '<?php else: ?>', $content);
         $content = preg_replace('/@endif/', '<?php endif; ?>', $content);

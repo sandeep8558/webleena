@@ -81,7 +81,7 @@ class Data {
 
     /* Insert new record */
     public function insert(array $new_data){
-        $data_with_id_field = $this->setUserId($new_data);
+        $data_with_id_field = $this->setId($new_data);
         array_push($this->stored_data, $data_with_id_field);
         $this->storeData();
     }
