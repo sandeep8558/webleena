@@ -19,6 +19,16 @@ class Request {
 
     public static function all(){
         $req = self::createFromGlobals();
+        return array_merge($req->get, $req->post, $req->files, $req->cookies, $req->server);
+    }
+
+    public static function get(){
+        $req = self::createFromGlobals();
+        return array_merge($req->get);
+    }
+
+    public static function post(){
+        $req = self::createFromGlobals();
         return array_merge($req->get, $req->post, $req->files);
     }
 

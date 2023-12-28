@@ -1,71 +1,95 @@
 <?php
 
 namespace Core;
-use App\Controller\PageController;
+use Core\Request;
 
 class Route {
 
-    public $path;
-    public $request;
-    public static $isRoute;
+    private static array $handlers;
 
     function __construct() {
-        $this->path = $_SERVER['REQUEST_URI'];
-        $this->request = $_GET;
-        self::$isRoute = false;
     }
 
     function __destruct() {
     }
 
-    public function server(){
-        foreach($_SERVER as $key=>$val){
-            echo $key . ' - ' . $val;
-            echo "<br>";
-        }
+    /* GET Method */
+    public static function get(string $path, array $handler): void
+    {
+        self::addHandler('GET', $path, $handler);
     }
 
-    public function request($key){
-        return $this->request[$key];
+    /* POST Method */
+    public static function post(string $path, array $handler): void
+    {
+        self::addHandler('POST', $path, $handler);
     }
 
-    public static function get($url, $arr){
+    private static function addHandler(string $method, string $path, $handler): void
+    {
+        self::$handlers[] = [
+            'path' => $path,
+            'method' => $method,
+            'handler' => $handler
+        ];
+    }
 
-        $uri= strtok($_SERVER['REQUEST_URI'], "?");
+    public static function run()
+    {
 
-        if($url == $uri){
+        $requestUri = parse_url($_SERVER['REQUEST_URI']);
+        $requestPath = $requestUri['path'];
+        $method = $_SERVER['REQUEST_METHOD'];
 
-            self::$isRoute = true;
+        self::createPages();
 
-            if(sizeof($arr) >= 2){
-                $model_name = $arr[0];
-                $model = new $model_name;
-                $method = $arr[1];
-                echo $model->$method();
+        $callback = null;
+        foreach(self::$handlers as $handler){
+            if($handler['path'] === $requestPath && $method === $handler['method']){
+                $callback = $handler['handler'];
             }
+        }
+        
+        if(!$callback){
+            header(header: "HTTP/1.0 404 Not Found");
+            return;
+        }
 
+        $request = [];
+        switch($method){
+            case "GET":
+                $request = Request::get();
+                break;
+            case "POST":
+                $request = Request::post();
+                break;
+        }
+
+        if(sizeof($callback) >= 2){
+            self::loader($callback, $request);
         }
     }
 
-    public static function dynamic($page){
-
-        $uri= strtok($_SERVER['REQUEST_URI'], "?");
-
-        if($page['route'] == $uri){
-            
-            self::$isRoute = true;
-            $model = new PageController();
-            echo $model->index($page);
-
-        }
-
+    private static function loader($callback, $request)
+    {
+        $model = new $callback[0];
+        $method = $callback[1];
+        echo $model->$method($request);
     }
 
-    public static function end(){
-        if(!self::$isRoute){
-            echo "Route not found";
-            echo "<br>";
+    private static function createPages()
+    {
+        $pagesdata = new Data('pages');
+        foreach($pagesdata->all() as $page){
+            $path = $page['route'];
+            $handler = [Route::class, 'handleDynamicPages'];
+            self::addHandler('GET', $path, $handler);
         }
+    }
+
+    private static function handleDynamicPages($request)
+    {
+        return json_encode($request);
     }
 
 }

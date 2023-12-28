@@ -56,15 +56,13 @@ class View {
 
         }
 
-        
-
-
         $cacheFile = '../Temp/Cache/' . $view . '.php';
         $dirname = dirname($cacheFile, PATHINFO_DIRNAME);
         if (!file_exists($dirname)) {
             mkdir($dirname, 0777, true);
         }
         file_put_contents($cacheFile, $layoutContent);
+
         include $cacheFile;
 
     }
