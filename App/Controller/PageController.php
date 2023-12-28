@@ -1,8 +1,8 @@
 <?php
 
 namespace App\Controller;
-use App\Core\Controller;
-use App\Core\View;
+use Core\Controller;
+use Core\View;
 
 class PageController extends Controller {
 

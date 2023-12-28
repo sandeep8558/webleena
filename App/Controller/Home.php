@@ -1,9 +1,9 @@
 <?php
 
 namespace App\Controller;
-use App\Core\Controller;
-use App\Core\Data;
-use App\Core\View;
+use Core\Controller;
+use Core\Data;
+use Core\View;
 
 class Home extends Controller {
 

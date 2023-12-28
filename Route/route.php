@@ -1,7 +1,7 @@
 <?php
 
 use Core\Route;
-use App\Core\Data;
+use Core\Data;
 
 /* Website Pages */
 Route::get('/', ['App\Controller\Home', 'home']);

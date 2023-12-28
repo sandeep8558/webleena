@@ -1,10 +1,11 @@
 <?php
 
 namespace App\Controller;
-use App\Core\Controller;
-use App\Core\Session;
-use App\Core\View;
-use App\Core\Data;
+
+use Core\Controller;
+use Core\Session;
+use Core\View;
+use Core\Data;
 
 use App\Controller\Auth;
 

@@ -2,9 +2,9 @@
 
 namespace App\Controller;
 
-use App\Core\Request;
-use App\Core\Controller;
-use App\Core\Data;
+use Core\Request;
+use Core\Controller;
+use Core\Data;
 
 class CrudController extends Controller {
 

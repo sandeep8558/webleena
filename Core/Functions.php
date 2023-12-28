@@ -1,6 +1,6 @@
 <?php
 
-use App\Core\Session;
+use Core\Session;
 
 function layout($view){
     $p = '../Resource/View/';

@@ -1,12 +1,12 @@
 <?php
 
 namespace App\Controller;
-use App\Core\Controller;
-use App\Core\Session;
-use App\Core\View;
-use App\Core\Data;
-use App\Core\Mail;
-use App\Core\Request;
+use Core\Controller;
+use Core\Session;
+use Core\View;
+use Core\Data;
+use Core\Mail;
+use Core\Request;
 
 
 class Auth extends Controller {
