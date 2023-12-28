@@ -1,7 +1,6 @@
 <?php
 
-namespace App\Core;
-use App\Core\Request;
+namespace Core;
 use App\Controller\PageController;
 
 class Route {

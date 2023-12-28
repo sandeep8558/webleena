@@ -1,6 +1,6 @@
 <?php
 
-use App\Core\Route;
+use Core\Route;
 use App\Core\Data;
 
 /* Website Pages */
