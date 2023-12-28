@@ -4,7 +4,6 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="/css/app.css">
-    <script src="/js/vue.global.prod.js"></script>
     <script src="/js/app.bundle.js" defer></script>
     
 <title>Login</title>
@@ -19,37 +18,39 @@ include '../Resource/View/layouts/header.php';
 
 
 
-<div class="container-full vh-100 flex justify-center align-center p-10">
-    <div class="w-100 w-80-sm w-60-md w-50-lg w-40-xl w-30-xxl">
+<div class="container">
+    <div class="row justify-content-center align-items-center m-0 vh-100">
 
-        <div class="rounded-10 shadow-4">
+        <div class="col-11 col-sm-10 col-md-8 col-lg-6 col-xl-5 col-xxl-4 p-0 h-auto">
 
-            <div class="container text-center uppercase bg-primary text-light p-10 rounded-top-10">
-                <h1 class="font-size-12">Sign in</h1>
+            <div class="shadow rounded-4">
+
+                <h3 class="text-center bg-primary text-light p-4 mb-0 rounded-top-4">Sign In</h3>
+
+                <form action="/authenticate" method="post" class="rounded-bottom-4 p-4">
+                    
+                    <div class="form-floating mb-4">
+                        <input type="email" name="email" class="form-control" id="floatingInput" placeholder="name@example.com">
+                        <label for="floatingInput">Email address</label>
+                    </div>
+
+                    <div class="form-floating mb-4">
+                        <input type="password" name="password" class="form-control" id="floatingPassword" placeholder="Password">
+                        <label for="floatingPassword">Password</label>
+                    </div>
+
+                    <div class="form-floating">
+                        <button type="submit" class="btn btn-primary">Sign In</button>
+                        <a class="d-inline-block btn btn-link" href="/forgot">Forgot Password</a>
+                    </div>
+                    
+                </form>
+                
             </div>
 
-            <form action="/authenticate" method="post" class="p-15">
-
-                <div class="mb-12">
-                    <label for="email" class="d-block mb-3">Email</label>
-                    <input type="text" name="email" id="email" class="font-size-11 d-block w-100 p-6">
-                </div>
-
-                <div class="mb-12">
-                    <label for="password" class="d-block mb-3">Password</label>
-                    <input type="password" name="password" id="password" class="font-size-11 d-block w-100 p-6">
-                </div>
-
-                <div>
-                    <input type="submit" value="Sign In" class="btn btn-primary border-none">
-                    <a href="/forgot" class="float-right font-size-10 link">Forgot Password</a>
-                </div>
-
-            </form>
+            <div class="p-3 text-center">Powered By <strong>WebLeena</strong></div>
 
         </div>
-
-        <div class="p-10 text-center opacity-75">Powered by <b>WEBLEENA</b></div>
 
     </div>
 </div>

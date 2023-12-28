@@ -1,22 +1,35 @@
-import App from './Components/App.vue';
-import Settings from './Components/Admin/Settings.vue';
-import FormElement from './Components/Form/FormElement.vue';
+import { createApp } from "../../node_modules/vue/index";
 
+/* Alll Components Goes Here */
+import ForgotPassword from './Components/Auth/ForgotPassword.vue';
+import Crud from './Components/Core/Crud.vue';
+import Settings from './Components/Admin/Settings.vue';
+import Navigation from './Components/Admin/Navigation.vue';
+
+/* Options for main vue object */
 const options = {
-    data(){
+    data: function(){
         return {
-            title: "Leena IT Solutions"
+            title: "Sandy Randy"
         };
+    },
+    components: {
+        'forgot-password': ForgotPassword,
+        'crud': Crud,
+        'Settings': Settings,
+        'navigation': Navigation
     },
 };
 
 /* Created vue object */
-const vue = Vue.createApp(options);
-
-/* All Components goes here */
-vue.component('App', App);
-vue.component('Settings', Settings);
-vue.component('form_element', FormElement);
+const vue = createApp(options);
 
 /* Linked vue to #app ID */
 const app = vue.mount('#app');
+
+
+// Import our custom CSS
+import '../scss/styles.scss';
+
+// Import all of Bootstrap's JS
+import * as bootstrap from 'bootstrap';

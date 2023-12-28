@@ -1,0 +1,12 @@
+{
+    "1": {
+        "name": "Main Menubar",
+        "str": "[{\"name\":\"Home\",\"route\":\"\/home\",\"title\":\"Home Page\",\"keywords\":\"keyword\",\"description\":\"description\",\"id\":3},{\"name\":\"About\",\"route\":\"\/about\",\"title\":\"About Page\",\"keywords\":\"about, page\",\"description\":\"this is about us page\",\"id\":2},{\"name\":\"Products\",\"route\":\"\/products\",\"title\":\"Products Page\",\"keywords\":\"product, pages, medical, pharma\",\"description\":\"this is product page description\",\"id\":4},{\"name\":\"Contact\",\"route\":\"\/my\/contact\",\"title\":\"Contact Page\",\"keywords\":\"contact, page\",\"description\":\"this is contact page description\",\"id\":1}]",
+        "id": 2
+    },
+    "2": {
+        "name": "Full Navbar",
+        "str": "[{\"name\":\"Home\",\"route\":\"\/home\",\"title\":\"Home Page\",\"keywords\":\"keyword\",\"description\":\"description\",\"id\":3},{\"name\":\"About\",\"route\":\"\/about\",\"title\":\"About Page\",\"keywords\":\"about, page\",\"description\":\"this is about us page\",\"id\":2},{\"name\":\"Contact\",\"route\":\"\/my\/contact\",\"title\":\"Contact Page\",\"keywords\":\"contact, page\",\"description\":\"this is contact page description\",\"id\":1},{\"name\":\"Career\",\"route\":\"\/career\",\"title\":\"This is Career\",\"keywords\":\"career, Job, work\",\"description\":\"This is page for career opo with company\",\"id\":5},{\"name\":\"Products\",\"route\":\"\/products\",\"title\":\"Products Page\",\"keywords\":\"product, pages, medical, pharma\",\"description\":\"this is product page description\",\"id\":4},{\"name\":\"Services\",\"route\":\"\/service\",\"title\":\"Services Page\",\"keywords\":\"service, related, keywords\",\"description\":\"this is description\",\"id\":6}]",
+        "id": 3
+    }
+}

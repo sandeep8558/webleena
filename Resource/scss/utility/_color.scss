@@ -6,6 +6,7 @@
 
     .bg-#{$name} {
         background-color: $color;
+        color: text-color($color);
     }
 
     .border-#{$name} {

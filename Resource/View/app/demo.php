@@ -6,6 +6,6 @@
 
 @section('body')
 
-
+<h1>Website aahe hi</h1>
 
 @endsection('body')

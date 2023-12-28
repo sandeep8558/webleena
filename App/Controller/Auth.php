@@ -3,9 +3,10 @@
 namespace App\Controller;
 use App\Core\Controller;
 use App\Core\Session;
-
 use App\Core\View;
 use App\Core\Data;
+use App\Core\Mail;
+use App\Core\Request;
 
 
 class Auth extends Controller {
@@ -24,6 +25,56 @@ class Auth extends Controller {
     public function forgot(){
         $this->guest();
         View::render('auth/forgot');
+    }
+
+    public function mail(){
+
+        $req = Request::createFromGlobals();
+        $request = $req->post;
+
+        /* Check Email exist in records */
+        $arr = [
+            "email" => $request['email'],
+        ];
+        $data = new Data('auth');
+        $is = $data->check($arr);
+
+        if($is){
+            
+            /* Set OTP */
+            $otp = mt_rand(100000,999999);
+            $is = $data->updateAll("email", $request['email'], ["otp" => $otp]);
+            
+            /* Send Mail with OTP */
+            $mail = new Mail();
+            return $mail->send($request['email'], 'Webleena OTP', 'OTP is ' . $otp);
+
+        } else {
+            return json_encode(['error' => 'Email does not exists in our records.']);
+        }
+        
+    }
+
+    public function update_password(){
+        
+        $req = Request::createFromGlobals();
+        $request = $req->post;
+
+        $arr = [
+            "email" => $request['email'],
+            "otp" => $request['otp'],
+        ];
+
+        $data = new Data('auth');
+        $is = $data->check($arr);
+
+        if($is){
+            $data->updateAll("email", $request['email'], ["password" => base64_encode($request['password'])]);
+            return json_encode(['message' => 'Success']);
+        } else {
+            return json_encode(['error' => 'Wrong OTP Entered']);
+        }
+
     }
 
     public function authenticate(){

@@ -6,35 +6,18 @@
 
 @section('body')
 
-<div class="container-full vh-100 flex justify-center align-center p-10">
-    <div class="w-100 w-80-sm w-60-md w-50-lg w-40-xl w-30-xxl">
+<div class="container">
+    <div class="row justify-content-center align-items-center m-0 vh-100">
 
-        <div class="rounded-10 shadow-4">
+        <div class="col-11 col-sm-10 col-md-8 col-lg-6 col-xl-5 col-xxl-4 p-0 h-auto">
 
-            <div class="container text-center uppercase p-10 bg-primary text-light rounded-top-10">
-                <h1 class="font-size-12">Forgot Password</h1>
-            </div>
+            <forgot-password></forgot-password>
 
-            <form action="/forgot" method="post" class="p-15">
-
-                <div class="mb-12">
-                    <label for="email" class="d-block mb-3">Email</label>
-                    <input type="text" name="email" id="email" class="font-size-11 d-block w-100 p-6">
-                </div>
-
-                <div>
-                    <input type="submit" value="Send OTP" class="btn btn-primary border-none">
-                    <a href="/login" class="float-right font-size-10 link">Sign In Here</a>
-                </div>
-
-            </form>
+            <div class="p-3 text-center">Powered By <strong>WebLeena</strong></div>
 
         </div>
 
-        <div class="p-10 text-center opacity-75">Powered by <b>WEBLEENA</b></div>
-
     </div>
-
 </div>
 
 @endsection('body')

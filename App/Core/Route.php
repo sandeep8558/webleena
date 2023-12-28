@@ -2,6 +2,7 @@
 
 namespace App\Core;
 use App\Core\Request;
+use App\Controller\PageController;
 
 class Route {
 
@@ -30,8 +31,10 @@ class Route {
     }
 
     public static function get($url, $arr){
-        
-        if($url == $_SERVER['REDIRECT_URL']){
+
+        $uri= strtok($_SERVER['REQUEST_URI'], "?");
+
+        if($url == $uri){
 
             self::$isRoute = true;
 
@@ -43,6 +46,20 @@ class Route {
             }
 
         }
+    }
+
+    public static function dynamic($page){
+
+        $uri= strtok($_SERVER['REQUEST_URI'], "?");
+
+        if($page['route'] == $uri){
+            
+            self::$isRoute = true;
+            $model = new PageController();
+            echo $model->index($page);
+
+        }
+
     }
 
     public static function end(){

@@ -6,8 +6,8 @@
 
 @section('body')
 
-<h1 class="text-center m-12">Settings</h1>
+<h1 class="text-center p-5">Settings</h1>
 
-<Settings :settings='{{{ $settings }}}' :fields='{{{ $fields }}}'></Settings>
+<Settings></Settings>
 
 @endsection('body')

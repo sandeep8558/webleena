@@ -16,7 +16,7 @@ class Data {
         $this->struct_file = "../Data/".$file_name.".data.php";
         
         /* JSON file path */
-        $this->json_file = "../Data/JSON/".$file_name.".json";
+        $this->json_file = "../Data/JSON/".$this->name().".json";
 
         /* Create file if doesn't exists */
         $this->checkJSONFile();
@@ -24,7 +24,7 @@ class Data {
         /* Data get from json file */
         $this->stored_data = json_decode(file_get_contents($this->json_file), true);
 
-        if($this->type() == "recursive"){
+        if($this->type() == "recursive" && $this->stored_data != null){
 
             /* Cound number of records */
             $this->number_of_records = count($this->stored_data);
@@ -39,10 +39,10 @@ class Data {
         }
     }
 
-    private function create_element(){}
-
+    /* Check for file exists or not, and creates the file when does not exists */
     private function checkJSONFile(){
         if(!file_exists($this->json_file)){
+            
             $file = fopen($this->json_file, "w");
             fclose($file);
 
@@ -52,7 +52,8 @@ class Data {
             }
 
             if($this->type() == "static"){
-                foreach($this->fields() as $key=>$val){
+                foreach($this->fields() as $val){
+                    $key = $val['name'];
                     $this->stored_data[$key] = "";
                 }
                 $this->storeData();
@@ -79,18 +80,118 @@ class Data {
         );
     }
 
+    public function dropJSON(){
+        if(file_exists($this->json_file)){
+            unlink($this->json_file);
+        }
+    }
+
+
+
+
+
+
+
+    /* Get all fields */
+    public function fields(){
+        include $this->struct_file;
+        return $element['fields'];
+    }
+
+    /* Get name of element */
+    public function name(){
+        include $this->struct_file;
+        return $element['name'];
+    }
+
+    /* Get type of element */
+    public function type(){
+        include $this->struct_file;
+        return $element['type'];
+    }
+
+    /* Get length of array of element */
+    public function length(){
+        include $this->struct_file;
+        return count($element['fields']);
+    }
+
+    /* Check property exists or not */
+    public function isProp($prop){
+        $is = false;
+        foreach($this->fields() as $field){
+            if($field['name'] == $prop){
+                $is = true;
+            }
+        }
+        return $is;
+    }
+
+
+
+
+
+
+
+    /* Fetch Static Data */
+    public function fetch(){
+        return $this->stored_data;
+    }
+
+    /* get deta by key */
+    public function prop($key){
+        $response = null;
+        if($this->type() == 'static'){
+            if($this->isProp($key) && isset($this->stored_data[$key])){
+                $response = $this->stored_data[$key];
+            }
+        }
+        return $response;
+    }
+
+    /* Save Static Data */
+    public function save($key, $val){
+        if($this->type() == 'static'){
+            if($this->isProp($key)){
+                $this->stored_data[$key] = $val;
+                $this->storeData();
+            }
+        }
+    }
+
+
+
+
+
+
+
     /* Insert new record */
     public function insert(array $new_data){
-        $data_with_id_field = $this->setId($new_data);
+        $pureData = $this->purify($new_data);
+        $data_with_id_field = $this->setId($pureData);
         array_push($this->stored_data, $data_with_id_field);
         $this->storeData();
     }
 
     /* Update Data */
     public function update(int $id, array $data){
+        $pureData = $this->purifyOnly($data);
         foreach($this->stored_data as $key => $row){
             if($row['id'] == $id) {
-                foreach($data as $k=>$v){
+                foreach($pureData as $k=>$v){
+                    $this->stored_data[$key][$k] = $v;
+                }
+            }
+        }
+        $this->storeData();
+    }
+
+    /* Update by kye-value pair */
+    public function updateAll($mykey, $myval, array $data){
+        $pureData = $this->purifyOnly($data);
+        foreach($this->stored_data as $key => $row){
+            if($row[$mykey] == $myval) {
+                foreach($pureData as $k=>$v){
                     $this->stored_data[$key][$k] = $v;
                 }
             }
@@ -116,6 +217,33 @@ class Data {
         $this->storeData();
     }
 
+    public function purify(array $data){
+        $pureData = [];
+        foreach($this->fields() as $f){
+            $key = $f['name'];
+            $pureData[$key] = isset($data[$key]) ? $data[$key] : "";
+        }
+        return $pureData;
+    }
+
+    public function purifyOnly(array $data){
+        $pureData = [];
+        foreach($this->fields() as $f){
+            $key = $f['name'];
+            if(isset($data[$key])){
+                $pureData[$key] = $data[$key];
+            }
+        }
+        return $pureData;
+    }
+
+
+
+
+
+
+
+
     /* Check Values exists or not */
     public function check($arr){
         $response = false;
@@ -125,18 +253,6 @@ class Data {
         }
         $response = !in_array(false, $is);
         return $response;
-    }
-
-    /* Get all fields */
-    public function fields(){
-        include $this->struct_file;
-        return $element['fields'];
-    }
-
-    /* Get type of element */
-    public function type(){
-        include $this->struct_file;
-        return $element['type'];
     }
 
     /* get all data */
@@ -157,7 +273,8 @@ class Data {
         return $response;
     }
 
-    public function get_row($key, $val){
+    /* get row by key value */
+    public function row($key, $val){
         $response = null;
         if(in_array($val, array_column($this->stored_data, $key))){
             foreach($this->stored_data as $row){
@@ -167,24 +284,6 @@ class Data {
             }
         }
         return $response;
-    }
-
-    public function fetch(){
-        return $this->stored_data;
-    }
-
-    /* get deta by key */
-    public function get_value($key){
-        $response = null;
-        if(isset($this->stored_data[$key])){
-            $response = $this->stored_data[$key];
-        }
-        return $response;
-    }
-
-    public function save($key, $val){
-        $this->stored_data[$key] = $val;
-        $this->storeData();
     }
 
 }

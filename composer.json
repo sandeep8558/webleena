@@ -13,5 +13,7 @@
             "email": "sandeep198558@gmail.com"
         }
     ],
-    "require": {}
+    "require": {
+        "phpmailer/phpmailer": "^6.9"
+    }
 }

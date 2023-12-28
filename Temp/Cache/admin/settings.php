@@ -4,7 +4,6 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="/css/app.css">
-    <script src="/js/vue.global.prod.js"></script>
     <script src="/js/app.bundle.js" defer></script>
     
 <title>Settings</title>
@@ -19,9 +18,9 @@ include '../Resource/View/layouts/header.php';
 
 
 
-<h1 class="text-center m-12">Settings</h1>
+<h1 class="text-center p-5">Settings</h1>
 
-<Settings :settings='<?php parseInterpolation($settings) ?>' :fields='<?php parseInterpolation($fields) ?>'></Settings>
+<Settings></Settings>
 
 
 

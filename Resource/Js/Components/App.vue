@@ -1,16 +1,14 @@
 <template>
   <div class="shadow-4 m-15 p-10 rounded-8">
-      <h1>Sandeep Vilas Rathod</h1>
-      <p>This is the day that the Lord has made.</p>
+      <h1>CRUD</h1>
   </div>
 </template>
 
 <script>
 export default {
-  data() {
+  data: function () {
     return {
-      count: 0
-    }
-  }
+    };
+  },
 }
 </script>

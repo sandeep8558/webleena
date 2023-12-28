@@ -1,8 +1,8 @@
 {
-    "brand": "Royce Enterprise",
+    "brand": "Leena IT Solutions",
     "tag": "Your Problem Our Solutions",
     "email": "info@webleena.com",
-    "mobile": "9664588677",
+    "mobile": "0123456789",
     "logo": "\/images\/1703540171_219577_pumpkin.jpg",
     "favicon": "\/images\/1703540187_582886_lemon.jpg",
     "address": "Plot No 65",
@@ -10,7 +10,6 @@
     "pincode": "421501",
     "state": "Maharashtra",
     "country": "India",
-    "note": "Thank you for support\n",
-    "primary": "#FFFFFF",
-    "": null
+    "note": "Thank you for support\r\nThis is an awesome programme",
+    "primary": "#FFFFFF"
 }

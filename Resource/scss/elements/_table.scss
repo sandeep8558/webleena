@@ -1,9 +1,9 @@
 .table {
-    @extend .w-100;
+    @extend .w-100, .shadow-4;
 
     td, th {
-        padding: 5px;
-        border: 1px solid $light;
+        text-align: left;
+        padding: 10px;
     }
 
     &-collapse {
@@ -13,4 +13,17 @@
     &-separate {
         border-collapse: separate !important;
     }
+
+    @each $name, $color in $colors {
+        &-#{$name} {
+            thead{
+                background-color: $color;
+                color: text-color($color);
+            }
+            td, th {
+                border: 1px solid $color;
+            }
+        }
+    }
+
 }
