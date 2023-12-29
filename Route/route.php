@@ -21,11 +21,12 @@ Route::get('/layout', [App\Controller\Admin::class, 'layout']);
 Route::get('/elements', [App\Controller\Admin::class, 'elements']);
 
 /* API Calls */
-Route::get('/api/data/save', [App\Controller\CrudController::class, 'save']);
 Route::get('/api/data/all', [App\Controller\CrudController::class, 'all']);
 Route::get('/api/data/fields', [App\Controller\CrudController::class, 'fields']);
-Route::get('/api/data/insert', [App\Controller\CrudController::class, 'insert']);
-Route::get('/api/data/update', [App\Controller\CrudController::class, 'update']);
-Route::get('/api/data/delete', [App\Controller\CrudController::class, 'delete']);
+Route::get('/api/data/type', [App\Controller\CrudController::class, 'type']);
+Route::post('/api/data/save', [App\Controller\CrudController::class, 'save']);
+Route::post('/api/data/insert', [App\Controller\CrudController::class, 'insert']);
+Route::post('/api/data/update', [App\Controller\CrudController::class, 'update']);
+Route::post('/api/data/delete', [App\Controller\CrudController::class, 'delete']);
 
 Route::run();

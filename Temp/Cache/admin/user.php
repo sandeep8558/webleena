@@ -18,8 +18,6 @@ include '../Resource/View/layouts/header.php';
 
 
 
-<!-- <user-manager></user-manager> -->
-
 <crud file="auth" title="User Manager" btn="Add User" color="warning"></crud>
 
 

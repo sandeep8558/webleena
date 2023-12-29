@@ -46,5 +46,13 @@
         "keywords": "service, related, keywords",
         "description": "this is description",
         "id": 6
+    },
+    {
+        "name": "Blogs",
+        "route": "\/blogs",
+        "title": "Blog Page",
+        "keywords": "blog, page",
+        "description": "This is a blog page",
+        "id": 7
     }
 ]

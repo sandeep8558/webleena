@@ -4,8 +4,8 @@ $element = [
     "type" => "recursive", /* recursive | static | mail */
     "fields" => [
         [
-            "name" => "name",
-            "text" => "Name",
+            "name" => "title",
+            "text" => "Title",
             "type" => "text",
             "value" => "",
             "validation" => "",
@@ -13,9 +13,18 @@ $element = [
             "form" => "Yes"
         ],
         [
-            "name" => "mobile",
-            "text" => "Mobile Number",
-            "type" => "text",
+            "name" => "description",
+            "text" => "Description",
+            "type" => "textarea",
+            "value" => "",
+            "validation" => "",
+            "grid" => "No",
+            "form" => "Yes"
+        ],
+        [
+            "name" => "photo",
+            "text" => "Feature Image",
+            "type" => "image",
             "value" => "",
             "validation" => "",
             "grid" => "Yes",

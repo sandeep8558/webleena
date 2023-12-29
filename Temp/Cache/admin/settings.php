@@ -18,9 +18,9 @@ include '../Resource/View/layouts/header.php';
 
 
 
-<h1 class="text-center p-5">Settings</h1>
+<!-- <Settings></Settings> -->
 
-<Settings></Settings>
+<crud file="settings"></crud>
 
 
 

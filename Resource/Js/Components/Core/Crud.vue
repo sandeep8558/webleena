@@ -1,66 +1,65 @@
 <template>
-    <div class="container shadow-4 m-15 p-15 rounded-8">
+    <div class="">
         
         <!-- Header Part -->
-        <div class="row mb-15">
-            <div class="col w-50 capitalize"><h2>{{ pageTitle }}</h2></div>
-            <div class="col w-50 text-right">
-                <button @click="isForm = !isForm" class="btn btn-sm" :class="btnClass">{{ btnText }}</button>
+        <div class="row align-items-center mx-0 py-4 shadow mb-5">
+            <div class="col px-5 text-capitalize"><h4>{{ pageTitle }}</h4></div>
+            <div v-if="typ == 'recursive'" class="col-auto px-5 text-end">
+                <button @click="isForm = !isForm" class="btn" :class="btnClass">{{ btnText }}</button>
             </div>
         </div>
 
-        <div v-if="isForm" class="mb-15 border border-1 p-15 rounded-8 shadow-4">
-            
-            <template v-for="val, key in fields" :key="key">
-                <template v-if="val.form == 'Yes'">
-
-                    <div v-if="val.type == 'text'" class="mb-8">
-                        <label for="name">{{ val.text }}</label>
-                        <input type="text" :value="frm[key]" @input="frm[key] = $event.target.value" class="d-block w-100 p-4">
+        <!-- Form -->
+        <div v-if="isForm" class="container-fluid px-5 mb-5">
+            <div class="shadow py-5 px-4 row m-0 rounded-3">
+                
+                <template v-for="fld in fields" :key="fld.name">
+                    <div v-if="fld.form == 'Yes'" class="col-12 mb-4">
+                        <formelement @change="updateValue(fld.name, frm[fld.name])" :type="fld.type" :label="fld.text" :key="fld.name" v-model="frm[fld.name]"></formelement>
                     </div>
-
-                    <div v-if="val.type == 'textarea'" class="mb-8">
-                        <label for="name">{{ val.text }}</label>
-                        <textarea rows="4" :value="frm[key]" @input="frm[key] = $event.target.value" class="d-block w-100 p-4"></textarea>
-                    </div>
-
                 </template>
-            </template>
 
-            <div class="mb-8">
-                <button @click="save()" class="btn btn-sm" :class="btnClass">Save</button>
+                <div v-if="typ == 'recursive'" class="col-12">
+                    <button @click="save()" class="btn" :class="btnClass" :disabled="invalid">Save</button>
+                </div>
+                
             </div>
-
         </div>
 
-        <div class="">
-            <table class="table table-collapse" :class="tableClass">
-                <thead class="">
-                    <tr>
-                        <th>ID</th>
-                        
-                        <template v-for="val, fld in fields" :key="fld">
-                            <th v-if="val.grid == 'Yes'" class="capitalize">{{ val.text }}</th>
-                        </template>
+        <!-- Data Table -->
+        <div v-if="typ == 'recursive'" class="container-fluid px-5">
+            <div class="table-responsive">
+                <table class="table">
+                    <thead :class="tableClass">
+                        <tr>
+                            <th style="width: 60px; min-width: 60px;" class="text-center p-3">ID</th>
+                            
+                            <template v-for="val, fld in fields" :key="fld">
+                                <th v-if="val.grid == 'Yes'" class="capitalize text-nowrap p-3">{{ val.text }}</th>
+                            </template>
 
-                        <th>Action</th>
-                    </tr>
-                </thead>
-                <tbody>
-                    <tr v-for="row in data" :key="row.id">
-                        <td>{{ row.id }}</td>
-                        
-                        <template v-for="val, fld in fields" :key="fld">
-                            <td v-if="val.grid == 'Yes'">{{ row[fld] }}</td>
-                        </template>
+                            <th class="text-center p-3" style="width: 125px; min-width: 125px;">Action</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr v-for="row in rows" :key="row.id">
+                            <td style="width: 60px; min-width: 60px;" class="text-center">{{ row.id }}</td>
+                            
+                            <template v-for="val in fields" :key="val.id">
+                                <td v-if="val.grid == 'Yes'">
+                                    <img v-if="valueType(val.name) == 'image'" style="width:50px;" :src="row[val.name]" />
+                                    <span v-if="valueType(val.name) != 'image'">{{ row[val.name] }}</span>
+                                </td>
+                            </template>
 
-                        <td class="w-10 text-center">
-                            <button @click="editRow(row)" class="btn btn-sm btn-warning px-5 py-3 mr-3">&#9998;</button>
-                            <button @click="deleteRow(row.id)" class="btn btn-sm btn-danger px-5 py-3">&#128465;</button>
-                        </td>
-                    </tr>
-                </tbody>
-            </table>
+                            <td class="text-center" style="width: 125px; min-width: 125px;">
+                                <button @click="editRow(row)" class="btn btn-sm btn-warning"><i class="bi bi-pen"></i></button>
+                                <button @click="deleteRow(row.id)" class="btn btn-sm btn-danger ms-2"><i class="bi bi-trash"></i></button>
+                            </td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
         </div>
 
     </div>
@@ -68,37 +67,65 @@
 
 <script>
 import axios from 'axios';
+import FormElement from './FormElement.vue';
 export default {
 
     props: ['file', 'title', 'btn', 'color'],
+
+    components: {
+        'formelement': FormElement,
+    },
 
     data: function () {
         return {
             tableClass : '',
             btnClass: '',
-            isForm: false,
+            isForm: true,
             pageTitle: this.file + ' Manager',
             btnText: 'Add',
-            data: [],
+            rows: [],
             fields: [],
             frm: {
                 id: null
             },
+            typ: null,
         };
     },
 
     computed: {
+        invalid(){
+            let is = true;
+            let a = [];
+            for(let p in this.frm){
+                if(p != 'id'){
+                    if(this.frm[p] != null && this.frm[p] != '' && this.frm[p] != undefined){
+                        a.push(true);
+                    } else {
+                        a.push(false);
+                    }
+                }
+            }
+            is = a.includes(false);
+            return is;
+        },
     },
 
     methods: {
 
-        init(){
-            this.getFields();
-            this.getData();
-            this.pageTitle = this.title == undefined ? this.file + ' Manager' : this.title;
-            this.btnText = this.btn == undefined ? ' Add' : this.btn;
-            this.tableClass = this.color == undefined ? ' table-primary' : 'table-'+this.color;
-            this.btnClass = this.color == undefined ? ' btn-primary' : 'btn-'+this.color;
+        valueType(key){
+            let typ = null;
+            this.fields.forEach(f => {
+                if(f['name'] == key){
+                    typ = f['type'];
+                }
+            });
+            return typ;
+        },
+
+        async getType(){
+            let url = '/api/data/type?file=' + this.file;
+            let typ = await axios.get(url).then(res => res.data);
+            this.typ = typ;
         },
 
         async getFields(){
@@ -111,49 +138,48 @@ export default {
         async resetFields(){
             this.frm.id = null;
             for(let fld in this.fields){
-                this.frm[fld] = '';
+                if(this.fields[fld].form == 'Yes'){
+                    let p = this.fields[fld].name;
+                    this.frm[p] = '';
+                }
             }
         },
 
         async getData(){
             let url = '/api/data/all?file=' + this.file;
             let data = await axios.get(url).then(res => res.data);
-            this.data = data;
+            this.rows = data;
         },
 
         async save(){
-            if(this.validate()){
-                let frm = new FormData();
-                frm.append('file', this.file);
-                frm.append('id', this.frm.id);
-                for(let fld in this.fields){
-                    frm.append(fld, this.frm[fld]);
-                }
-                if(this.frm.id == null){
-                    await this.insertRow(frm);
-                } else {
-                    await this.updateRow(frm);
-                }
-                this.resetFields();
-                this.isForm = false;
+                
+            let frm = new FormData();
+            frm.append('file', this.file);
+            for(let fld in this.frm){
+                frm.append(fld, this.frm[fld]);
             }
-        },
 
-        validate(){
-            let isValid = false;
-            let is = true;
-            for(let val in this.fields){
-                is = is && (this.frm[val] == "" ? false : true);
+            if(this.frm.id == null){
+                await this.insertRow(frm);
+            } else {
+                await this.updateRow(frm);
             }
-            return isValid = is;
+            
+            this.resetFields();
+
         },
 
         editRow(row){
             this.isForm = true;
             this.frm.id = row.id;
+
             for(let fld in this.fields){
-                this.frm[fld] = row[fld];
+                if(this.fields[fld].form == 'Yes'){
+                    let key = this.fields[fld]['name'];
+                    this.frm[key] = row[key];
+                }
             }
+
         },
 
         async deleteRow(id){
@@ -163,19 +189,51 @@ export default {
                 frm.append('file', this.file);
                 frm.append('id', id);
                 let data = await axios.post('/api/data/delete', frm).then(res => res.data);
-                this.data = data;
+                this.rows = data;
             }
         },
 
         async insertRow(frm){
+            console.log(frm);
             let data = await axios.post('/api/data/insert', frm).then(res => res.data);
-            this.data = data;
+            this.rows = data;
             
         },
 
         async updateRow(frm){
             let data = await axios.post('/api/data/update', frm).then(res => res.data);
-            this.data = data;
+            this.rows = data;
+        },
+
+        updateValue(key, val){
+            if(this.typ == 'static'){
+                let formData = new FormData();
+                formData.append('file', this.file);
+                formData.append('key', key);
+                formData.append('val', val);
+                this.updateSettings(formData);
+            }
+        },
+
+        async updateSettings(formData){
+            let res = await axios.post('/api/data/save', formData).then(res => res);
+        },
+
+        async init(){
+            await this.getType();
+            await this.getFields();
+            await this.getData();
+
+            if(this.typ == 'static'){
+                for(let row in this.rows){
+                    this.frm[row] = this.rows[row];
+                }
+            }
+
+            this.pageTitle = this.title == undefined ? this.file + ' Manager' : this.title;
+            this.btnText = this.btn == undefined ? ' Add' : this.btn;
+            this.tableClass = this.color == undefined ? ' table-primary' : 'table-'+this.color;
+            this.btnClass = this.color == undefined ? ' btn-primary' : 'btn-'+this.color;
         },
 
     },

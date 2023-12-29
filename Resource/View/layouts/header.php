@@ -5,7 +5,7 @@ if(session()->email) {
 <?php $p = strtok($_SERVER['REQUEST_URI'], "?"); ?>
 
 <nav class="navbar navbar-expand-lg bg-dark" data-bs-theme="dark">
-    <div class="container-fluid">
+    <div class="container-fluid px-5">
 
         <a class="navbar-brand" href="/"><i class="bi bi-globe-central-south-asia"></i></a>
 
@@ -14,7 +14,7 @@ if(session()->email) {
         </button>
         
         <div class="collapse navbar-collapse" id="navbarNav">
-            <ul class="navbar-nav">
+            <ul class="navbar-nav ms-auto">
                 <li class="nav-item">
                     <a class="nav-link <?php echo $p == '/dashboard' ? 'active' : '' ?>" href="/dashboard">Dashboard</a>
                 </li>

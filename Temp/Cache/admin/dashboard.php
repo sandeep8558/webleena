@@ -18,7 +18,7 @@ include '../Resource/View/layouts/header.php';
 
 
 
-<h1>This is Dashboard</h1>
+<crud file="example"></crud>
 
 
 

@@ -127,6 +127,16 @@ class Data {
         return $is;
     }
 
+    public function propType($key){
+        $type = null;
+        foreach($this->fields() as $field){
+            if($field['name'] == $key){
+                $type = $field['type'];
+            }
+        }
+        return $type;
+    }
+
 
 
 
