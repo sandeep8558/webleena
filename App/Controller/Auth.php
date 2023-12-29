@@ -12,7 +12,7 @@ use Core\Request;
 class Auth extends Controller {
 
     const LOGIN = "/login";
-    const DASHBOARD = "/dashboard";
+    const DASHBOARD = "/admin/dashboard";
 
     function __construct() {
     }

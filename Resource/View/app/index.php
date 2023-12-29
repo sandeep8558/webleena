@@ -6,6 +6,10 @@
 
 @section('body')
 
-<h1>Website aahe hi</h1>
+<h1>{{{ $settings['brand'] }}}</h1>
+
+<h1>{{{ $settings['tag'] }}}</h1>
+
+<h1>{{{ $settings['mobile'] }}}</h1>
 
 @endsection('body')

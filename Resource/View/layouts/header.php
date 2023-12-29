@@ -16,25 +16,25 @@ if(session()->email) {
         <div class="collapse navbar-collapse" id="navbarNav">
             <ul class="navbar-nav ms-auto">
                 <li class="nav-item">
-                    <a class="nav-link <?php echo $p == '/dashboard' ? 'active' : '' ?>" href="/dashboard">Dashboard</a>
+                    <a class="nav-link <?php echo $p == '/admin/dashboard' ? 'active' : '' ?>" href="/admin/dashboard">Dashboard</a>
                 </li>
                 <li class="nav-item">
-                    <a class="nav-link <?php echo $p == '/settings' ? 'active' : '' ?>" href="/settings">Settings</a>
+                    <a class="nav-link <?php echo $p == '/admin/settings' ? 'active' : '' ?>" href="/admin/settings">Settings</a>
                 </li>
                 <li class="nav-item">
-                    <a class="nav-link <?php echo $p == '/user' ? 'active' : '' ?>" href="/user">User</a>
+                    <a class="nav-link <?php echo $p == '/admin/user' ? 'active' : '' ?>" href="/admin/user">User</a>
                 </li>
                 <li class="nav-item">
-                    <a class="nav-link <?php echo $p == '/pages' ? 'active' : '' ?>" href="/pages">Pages</a>
+                    <a class="nav-link <?php echo $p == '/admin/pages' ? 'active' : '' ?>" href="/admin/pages">Pages</a>
                 </li>
                 <li class="nav-item">
-                    <a class="nav-link <?php echo $p == '/navigation' ? 'active' : '' ?>" href="/navigation">Navigation</a>
+                    <a class="nav-link <?php echo $p == '/admin/navigation' ? 'active' : '' ?>" href="/admin/navigation">Navigation</a>
                 </li>
                 <li class="nav-item">
-                    <a class="nav-link <?php echo $p == '/layout' ? 'active' : '' ?>" href="/layout">Layout</a>
+                    <a class="nav-link <?php echo $p == '/admin/layout' ? 'active' : '' ?>" href="/admin/layout">Layout</a>
                 </li>
                 <li class="nav-item">
-                    <a class="nav-link <?php echo $p == '/elements' ? 'active' : '' ?>" href="/elements">Elements</a>
+                    <a class="nav-link <?php echo $p == '/admin/elements' ? 'active' : '' ?>" href="/admin/elements">Elements</a>
                 </li>
                 <li class="nav-item">
                     <a class="nav-link" href="/logout">Logout</a>

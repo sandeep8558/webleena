@@ -2,6 +2,8 @@
 
 namespace Core;
 use Core\Request;
+use Core\View;
+use Core\Data;
 
 class Route {
 
@@ -89,7 +91,11 @@ class Route {
 
     private static function handleDynamicPages($request)
     {
-        return json_encode($request);
+        $data = new Data('settings');
+        $settings = $data->fetch();
+        View::render('app/index', [
+            'settings' => $settings
+        ]);
     }
 
 }
