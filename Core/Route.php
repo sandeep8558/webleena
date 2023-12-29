@@ -4,6 +4,7 @@ namespace Core;
 use Core\Request;
 use Core\View;
 use Core\Data;
+use Core\Session;
 
 class Route {
 
@@ -91,11 +92,7 @@ class Route {
 
     private static function handleDynamicPages($request)
     {
-        $data = new Data('settings');
-        $settings = $data->fetch();
-        View::render('app/index', [
-            'settings' => $settings
-        ]);
+        View::render('app/index',['request' => $request]);
     }
 
 }

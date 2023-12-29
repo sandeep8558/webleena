@@ -31,11 +31,11 @@ class View {
         
         $sections = preg_replace('/@section\(\'(.*)\'\)/', '$1', $arr[0]);
 
-        $data = [];
+        $section_data = [];
         foreach($sections as $section){
-            $data[$section] = get_string_between($content, "@section('$section')", "@endsection('$section')");
+            $section_data[$section] = get_string_between($content, "@section('$section')", "@endsection('$section')");
             $content = str_replace("@section('".$section."')", "", $content);
-            $content = str_replace($data[$section], "", $content);
+            $content = str_replace($section_data[$section], "", $content);
             $content = str_replace("@endsection('".$section."')", "", $content);
         }
 
@@ -49,9 +49,9 @@ class View {
 
             $layoutContent = file_get_contents($layout);
 
-            $layoutContent = preg_replace_callback('/@section\(\s*(.+?)\s*\)/', function($m) use($data){
+            $layoutContent = preg_replace_callback('/@section\(\s*(.+?)\s*\)/', function($m) use($section_data){
                 $a = str_replace("'", "", $m[1]);
-                return isset($data[$a]) ? $data[$a] : '';
+                return isset($section_data[$a]) ? $section_data[$a] : '';
             }, $layoutContent);
 
         }
@@ -61,6 +61,7 @@ class View {
         if (!file_exists($dirname)) {
             mkdir($dirname, 0777, true);
         }
+
         file_put_contents($cacheFile, $layoutContent);
 
         include $cacheFile;

@@ -1,8 +1,6 @@
 <?php
-if(session()->email) {
-?>
 
-<?php $p = strtok($_SERVER['REQUEST_URI'], "?"); ?>
+$p = strtok($_SERVER['REQUEST_URI'], "?"); ?>
 
 <nav class="navbar navbar-expand-lg bg-dark" data-bs-theme="dark">
     <div class="container-fluid px-5">
@@ -44,7 +42,3 @@ if(session()->email) {
 
     </div>
 </nav>
-
-<?php
-}
-?>

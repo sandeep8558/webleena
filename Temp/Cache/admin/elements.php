@@ -1,3 +1,9 @@
+<?php
+$session = Core\Session::getInstance();
+$settings = new Core\Data('settings');
+$settings = $settings->all();
+?>
+
 <!DOCTYPE html>
 <html lang="en">
 <head>

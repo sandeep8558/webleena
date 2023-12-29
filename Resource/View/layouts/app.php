@@ -1,3 +1,9 @@
+<?php
+$session = Core\Session::getInstance();
+$settings = new Core\Data('settings');
+$settings = $settings->all();
+?>
+
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -11,7 +17,9 @@
 <div id="app">
 
 <?php
-include '../Resource/View/layouts/header.php';
+if(isset($session->email)){
+    include '../Resource/View/layouts/header.php';
+}
 ?>
 
 @section('body')
