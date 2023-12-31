@@ -1,4 +1,4 @@
-@layout('layouts/app')
+@layout('layouts/admin')
 
 @section('head')
 <title>Dashboard</title>

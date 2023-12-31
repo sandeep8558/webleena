@@ -3,6 +3,7 @@ import { createApp } from "../../node_modules/vue/index";
 /* Alll Components Goes Here */
 import ForgotPassword from './Components/Auth/ForgotPassword.vue';
 import Crud from './Components/Core/Crud.vue';
+import ContainerManager from './Components/Core/ContainerManager.vue';
 import Settings from './Components/Admin/Settings.vue';
 import Navigation from './Components/Admin/Navigation.vue';
 
@@ -16,6 +17,7 @@ const options = {
     components: {
         'forgot-password': ForgotPassword,
         'crud': Crud,
+        'containermanager': ContainerManager,
         'Settings': Settings,
         'navigation': Navigation
     },

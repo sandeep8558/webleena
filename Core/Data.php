@@ -296,4 +296,17 @@ class Data {
         return $response;
     }
 
+    /* get rows by key value */
+    public function rows($key, $val){
+        $response = [];
+        if(in_array($val, array_column($this->stored_data, $key))){
+            foreach($this->stored_data as $row){
+                if($row[$key] == $val){
+                    $response[] = $row;
+                }
+            }
+        }
+        return $response;
+    }
+
 }

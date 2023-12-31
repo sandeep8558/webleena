@@ -42,6 +42,11 @@ class CrudController extends Controller {
         return json_encode($data->type());
     }
 
+    public function rows($request){
+        $data = new Data($request['file']);
+        return json_encode($data->rows($request['key'], $request['val']));
+    }
+
     public function all($request){
         $data = new Data($request['file']);
         return json_encode($data->all());
@@ -62,7 +67,15 @@ class CrudController extends Controller {
 
         $pureRequest = $this->purify($request['file'], $newRequest);
         $data->insert($pureRequest);
-        return json_encode($data->all());
+
+        $response = null;
+        if($request['file'] == 'content'){
+            $response = $data->rows('page_id', $request['page_id']);
+        } else {
+            $response = $data->all();
+        }
+
+        return json_encode($response);
     }
 
     public function update($request){

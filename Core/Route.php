@@ -92,7 +92,13 @@ class Route {
 
     private static function handleDynamicPages($request)
     {
-        View::render('app/index',['request' => $request]);
+        $requestUri = parse_url($_SERVER['REQUEST_URI']);
+        $requestPath = $requestUri['path'];
+
+        $pagesdata = new Data('pages');
+        $page = $pagesdata->row('route', $requestPath);
+
+        View::render('app/index',['request' => $request, 'page' => $page]);
     }
 
 }

@@ -20,7 +20,7 @@ $settings = $settings->all();
 
 <?php
 if(isset($session->email)){
-    include '../Resource/View/layouts/header.php';
+    include '../Resource/View/layouts/admin.header.php';
 }
 ?>
 

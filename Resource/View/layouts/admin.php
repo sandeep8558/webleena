@@ -11,9 +11,7 @@ $settings = $settings->all();
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="/css/app.css">
     <script src="/js/app.bundle.js" defer></script>
-    
-<title>Layout</title>
-
+    @section('head')
 </head>
 <body>
 <div id="app">
@@ -24,9 +22,7 @@ if(isset($session->email)){
 }
 ?>
 
-
-
-
+@section('body')
 
 </div>
 </body>
