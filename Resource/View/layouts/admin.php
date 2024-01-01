@@ -9,6 +9,7 @@ $settings = $settings->all();
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="icon" type="image/x-icon" href="<?php echo $settings['favicon']; ?>">
     <link rel="stylesheet" href="/css/app.css">
     <script src="/js/app.bundle.js" defer></script>
     @section('head')

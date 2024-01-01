@@ -10,13 +10,13 @@ class Data {
     private $number_of_records;
     private $ids = [];
 
-    function __construct($file_name) {
+    function __construct($file_name, $path="../Data") {
         
         /* Structure file path */
-        $this->struct_file = "../Data/".$file_name.".data.php";
+        $this->struct_file = $path."/".$file_name.".data.php";
         
         /* JSON file path */
-        $this->json_file = "../Data/JSON/".$this->name().".json";
+        $this->json_file = $path."/JSON/".$this->name().".json";
 
         /* Create file if doesn't exists */
         $this->checkJSONFile();

@@ -1,8 +1,8 @@
 [
     {
-        "container_classes": "p-5 mb-5",
-        "row_classes": "p-5",
-        "full": "container",
+        "container_classes": "p-5",
+        "row_classes": "p-0",
+        "full": "",
         "page_id": "3",
         "id": 1
     }

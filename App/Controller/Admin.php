@@ -6,6 +6,7 @@ use Core\Controller;
 use Core\Session;
 use Core\View;
 use Core\Data;
+use Core\Element;
 
 use App\Controller\Auth;
 

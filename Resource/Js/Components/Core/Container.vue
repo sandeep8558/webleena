@@ -1,14 +1,14 @@
 <template>
-<div class="container-fluid alert alert-danger mb-0" :class="contStyle">
+<div class="container-fluid bg-danger mb-0" :class="contStyle">
 
-    <div class="alert alert-info row mx-auto mb-0" :class="isFull" :role="login ? 'button' : ''" @click="isEdit = !isEdit">
+    <div class="bg-info row mx-auto mb-0" :class="[isFull, rowStyle]" :role="login ? 'button' : ''" @click="isEdit = !isEdit">
         <div class="col p-5 bg-primary"></div>
     </div>
 
 
 
 
-    <div v-if="isEdit && login" class="container bg-light mb-0 mt-3 p-3 rounded-3">
+    <div v-if="isEdit && login" class="container bg-light my-3 p-3 rounded-3">
 
         <div class="mb-3 text-center">
             <button class="btn btn-sm btn-primary me-2" :class="styleToItem == 'Container' ? 'active' : ''" @click="styleTo('Container')">Container Style</button>
@@ -36,7 +36,7 @@ export default {
 
     data: function(){
         return {
-            isEdit: true,
+            isEdit: false,
             isFull: this.cont.full,
             contStyle: this.cont.container_classes,
             rowStyle: this.cont.row_classes,

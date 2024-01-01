@@ -6,4 +6,6 @@
 
 @section('body')
 
+<elementmaker></elementmaker>
+
 @endsection('body')

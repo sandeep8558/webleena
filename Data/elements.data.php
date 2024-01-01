@@ -20,6 +20,15 @@ $element = [
             "validation" => "",
             "grid" => "Yes",
             "form" => "Yes"
-        ]
+        ],
+        [
+            "name" => "fields",
+            "text" => "Fields",
+            "type" => "text",
+            "value" => "",
+            "validation" => "",
+            "grid" => "No",
+            "form" => "Yes"
+        ],
     ]
 ];

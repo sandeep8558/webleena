@@ -29,6 +29,11 @@ Route::post('/api/data/insert', [App\Controller\CrudController::class, 'insert']
 Route::post('/api/data/update', [App\Controller\CrudController::class, 'update']);
 Route::post('/api/data/delete', [App\Controller\CrudController::class, 'delete']);
 
+Route::post('/api/element/create', [App\Controller\ElementController::class, 'create']);
+Route::post('/api/element/update', [App\Controller\ElementController::class, 'update']);
+Route::post('/api/element/delete', [App\Controller\ElementController::class, 'delete']);
+
+
 /* Website API Calls | Non Authenticated API Calls */
 Route::get('/api/fetch/rows', [App\Controller\DisplayContentController::class, 'rows']);
 Route::get('/api/fetch/all', [App\Controller\DisplayContentController::class, 'all']);
