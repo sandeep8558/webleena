@@ -6,13 +6,18 @@ use Core\Data;
 
 class CrudController extends Controller {
 
+    public $dir;
+
     function __construct() {
         Auth::auth();
+        $this->dir="../Data";
     }
 
     public function save($request){
 
-        $data = new Data($request['file']);
+        $dir = (isset($request['dir'])) ? $request['dir'] : $this->dir;
+
+        $data = new Data($request['file'], $dir);
         $typ = $data->propType($request['key']);
         $old_value = $data->prop($request['key']);
 
@@ -33,34 +38,56 @@ class CrudController extends Controller {
     }
 
     public function fields($request){
-        $data = new Data($request['file']);
+        $dir = (isset($request['dir'])) ? $request['dir'] : $this->dir;
+        $data = new Data($request['file'], $dir);
         return json_encode($data->fields());
     }
 
     public function type($request){
-        $data = new Data($request['file']);
+        $dir = (isset($request['dir'])) ? $request['dir'] : $this->dir;
+        $data = new Data($request['file'], $dir);
         return json_encode($data->type());
     }
 
     public function rows($request){
-        $data = new Data($request['file']);
+        $dir = (isset($request['dir'])) ? $request['dir'] : $this->dir;
+        $data = new Data($request['file'], $dir);
         return json_encode($data->rows($request['key'], $request['val']));
     }
 
     public function all($request){
-        $data = new Data($request['file']);
+        $dir = (isset($request['dir'])) ? $request['dir'] : $this->dir;
+        $data = new Data($request['file'], $dir);
         return json_encode($data->all());
     }
 
     public function delete($request){
-        $data = new Data($request['file']);
+        $dir = (isset($request['dir'])) ? $request['dir'] : $this->dir;
+        $data = new Data($request['file'], $dir);
         $this->deleteFiles($request);
         $data->delete($request['id']);
         return json_encode($data->all());
     }
 
+    public function deleteWithChildren($request){
+        $dir = (isset($request['dir'])) ? $request['dir'] : $this->dir;
+        $data = new Data($request['file'], $dir);
+        $this->deleteFiles($request);
+        foreach($data->all() as $row){
+            if($row['parent'] == $request['id']){
+                $newRequest = $request;
+                $newRequest['id'] = $row['id'];
+                $this->deleteWithChildren($newRequest);
+                $data->delete($row['id']);
+            }
+        }
+        $data->delete($request['id']);
+        return json_encode($data->all());
+    }
+
     public function insert($request){
-        $data = new Data($request['file']);
+        $dir = (isset($request['dir'])) ? $request['dir'] : $this->dir;
+        $data = new Data($request['file'], $dir);
 
         /* Upload Images here */
         $newRequest = $this->uploadFiles($request);
@@ -79,7 +106,8 @@ class CrudController extends Controller {
     }
 
     public function update($request){
-        $data = new Data($request['file']);
+        $dir = (isset($request['dir'])) ? $request['dir'] : $this->dir;
+        $data = new Data($request['file'], $dir);
         $old_value = $data->get($request['id']);
 
         /* Upload Images here */
@@ -91,7 +119,8 @@ class CrudController extends Controller {
     }
 
     private function uploadFiles($request, $old = null){
-        $data = new Data($request['file']);
+        $dir = (isset($request['dir'])) ? $request['dir'] : $this->dir;
+        $data = new Data($request['file'], $dir);
         /* Getting all file or images keys in array */
         $keys = [];
         foreach($data->fields() as $field){
@@ -113,7 +142,8 @@ class CrudController extends Controller {
     }
 
     private function deleteFiles($request){
-        $data = new Data($request['file']);
+        $dir = (isset($request['dir'])) ? $request['dir'] : $this->dir;
+        $data = new Data($request['file'], $dir);
         $row = $data->get($request['id']);
         /* Getting all file or images keys in array */
         $keys = [];
@@ -150,7 +180,8 @@ class CrudController extends Controller {
     }
 
     private function purify($file, $request){
-        $data = new Data($file);
+        $dir = (isset($request['dir'])) ? $request['dir'] : $this->dir;
+        $data = new Data($file, $dir);
         $fields = $data->fields();
         $pure = [];
         foreach($fields as $val){

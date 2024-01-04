@@ -28,6 +28,7 @@ Route::post('/api/data/save', [App\Controller\CrudController::class, 'save']);
 Route::post('/api/data/insert', [App\Controller\CrudController::class, 'insert']);
 Route::post('/api/data/update', [App\Controller\CrudController::class, 'update']);
 Route::post('/api/data/delete', [App\Controller\CrudController::class, 'delete']);
+Route::post('/api/data/deletewithchildren', [App\Controller\CrudController::class, 'deletewithchildren']);
 
 Route::post('/api/element/create', [App\Controller\ElementController::class, 'create']);
 Route::post('/api/element/update', [App\Controller\ElementController::class, 'update']);

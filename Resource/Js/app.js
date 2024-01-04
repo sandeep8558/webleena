@@ -31,9 +31,5 @@ const vue = createApp(options);
 /* Linked vue to #app ID */
 const app = vue.mount('#app');
 
-
-// Import our custom CSS
-import '../scss/styles.scss';
-
 // Import all of Bootstrap's JS
 import * as bootstrap from 'bootstrap';

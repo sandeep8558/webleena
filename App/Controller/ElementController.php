@@ -17,7 +17,9 @@ class ElementController extends Controller {
     }
 
     public function update($request){
-        return json_encode($request);
+        $element = new Element();
+        $r = $element->update($request['id'], $request['name'], $request['type'], $request['fields']);
+        return json_encode($r);
     }
 
     public function delete($request){

@@ -4,7 +4,7 @@
         <!-- Header Part -->
         <div class="row align-items-center mx-0 py-4 shadow mb-5">
             <div class="col px-5 text-capitalize"><h4>{{ pageTitle }}</h4></div>
-            <div v-if="typ == 'recursive'" class="col-auto px-5 text-end">
+            <div v-if="typ != 'static'" class="col-auto px-5 text-end">
                 <button @click="isForm = !isForm" class="btn" :class="btnClass">{{ btnText }}</button>
             </div>
         </div>
@@ -19,7 +19,7 @@
                     </div>
                 </template>
 
-                <div v-if="typ == 'recursive'" class="col-12">
+                <div v-if="typ != 'static'" class="col-12">
                     <button @click="save()" class="btn" :class="btnClass" :disabled="invalid">Save</button>
                 </div>
                 
@@ -27,7 +27,7 @@
         </div>
 
         <!-- Data Table -->
-        <div v-if="typ == 'recursive'" class="container-fluid px-5">
+        <div v-if="typ != 'static'" class="container-fluid px-5">
             <div class="table-responsive">
                 <table class="table">
                     <thead :class="tableClass">
@@ -70,7 +70,7 @@ import axios from 'axios';
 import FormElement from './FormElement.vue';
 export default {
 
-    props: ['file', 'title', 'btn', 'color'],
+    props: ['file', 'dir', 'title', 'btn', 'color'],
 
     components: {
         'formelement': FormElement,
@@ -89,6 +89,7 @@ export default {
                 id: null
             },
             typ: null,
+            filepath: null,
         };
     },
 
@@ -123,13 +124,13 @@ export default {
         },
 
         async getType(){
-            let url = '/api/data/type?file=' + this.file;
+            let url = '/api/data/type?file=' + this.file + '&dir=' + this.filepath;
             let typ = await axios.get(url).then(res => res.data);
             this.typ = typ;
         },
 
         async getFields(){
-            let url = '/api/data/fields?file=' + this.file;
+            let url = '/api/data/fields?file=' + this.file + '&dir=' + this.filepath;
             let fields = await axios.get(url).then(res => res.data);
             this.fields = fields;
             this.resetFields();
@@ -146,7 +147,7 @@ export default {
         },
 
         async getData(){
-            let url = '/api/data/all?file=' + this.file;
+            let url = '/api/data/all?file=' + this.file + '&dir=' + this.filepath;
             let data = await axios.get(url).then(res => res.data);
             this.rows = data;
         },
@@ -155,6 +156,7 @@ export default {
                 
             let frm = new FormData();
             frm.append('file', this.file);
+            frm.append('dir', this.filepath);
             for(let fld in this.frm){
                 frm.append(fld, this.frm[fld]);
             }
@@ -187,6 +189,7 @@ export default {
             if(conf){
                 let frm = new FormData();
                 frm.append('file', this.file);
+                frm.append('dir', this.filepath);
                 frm.append('id', id);
                 let data = await axios.post('/api/data/delete', frm).then(res => res.data);
                 this.rows = data;
@@ -194,7 +197,6 @@ export default {
         },
 
         async insertRow(frm){
-            console.log(frm);
             let data = await axios.post('/api/data/insert', frm).then(res => res.data);
             this.rows = data;
             
@@ -209,6 +211,7 @@ export default {
             if(this.typ == 'static'){
                 let formData = new FormData();
                 formData.append('file', this.file);
+                formData.append('dir', this.filepath);
                 formData.append('key', key);
                 formData.append('val', val);
                 this.updateSettings(formData);
@@ -220,6 +223,13 @@ export default {
         },
 
         async init(){
+
+            this.filepath = this.dir == undefined ? '../Data' : '../' + this.dir;
+            this.pageTitle = this.title == undefined ? this.file + ' Manager' : this.title;
+            this.btnText = this.btn == undefined ? ' Add' : this.btn;
+            this.tableClass = this.color == undefined ? ' table-primary' : 'table-'+this.color;
+            this.btnClass = this.color == undefined ? ' btn-primary' : 'btn-'+this.color;
+
             await this.getType();
             await this.getFields();
             await this.getData();
@@ -230,10 +240,7 @@ export default {
                 }
             }
 
-            this.pageTitle = this.title == undefined ? this.file + ' Manager' : this.title;
-            this.btnText = this.btn == undefined ? ' Add' : this.btn;
-            this.tableClass = this.color == undefined ? ' table-primary' : 'table-'+this.color;
-            this.btnClass = this.color == undefined ? ' btn-primary' : 'btn-'+this.color;
+            
         },
 
     },

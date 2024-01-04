@@ -309,4 +309,17 @@ class Data {
         return $response;
     }
 
+    public function rowsWithChildren($key, $val){
+        $response = [];
+        if(in_array($val, array_column($this->stored_data, $key))){
+            foreach($this->stored_data as $row){
+                if($row[$key] == $val){
+                    $row['children'] = $this->rowsWithChildren('parent', $row['id']);
+                    $response[] = $row;
+                }
+            }
+        }
+        return $response;
+    }
+
 }

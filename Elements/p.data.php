@@ -1,11 +1,20 @@
 <?php
 $element = [
-    "name" => "content",
-    "type" => "recursive",
+    "name" => "p",
+    "type" => "element",
     "fields" => [
         [
-            "name" => "element",
-            "text" => "Element",
+            "name" => "parent",
+            "text" => "Parent",
+            "type" => "text",
+            "value" => "",
+            "validation" => "",
+            "grid" => "Yes",
+            "form" => "Yes"
+        ],
+        [
+            "name" => "parent_id",
+            "text" => "Parent ID",
             "type" => "text",
             "value" => "",
             "validation" => "",
@@ -22,17 +31,8 @@ $element = [
             "form" => "Yes"
         ],
         [
-            "name" => "page_id",
-            "text" => "Page ID",
-            "type" => "text",
-            "value" => "",
-            "validation" => "",
-            "grid" => "Yes",
-            "form" => "Yes"
-        ],
-        [
-            "name" => "parent",
-            "text" => "Parent",
+            "name" => "content",
+            "text" => "Content",
             "type" => "text",
             "value" => "",
             "validation" => "",

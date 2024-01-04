@@ -54,5 +54,13 @@
         "keywords": "blog, page",
         "description": "This is a blog page",
         "id": 7
+    },
+    {
+        "name": "Faith",
+        "route": "\/faith",
+        "title": "Faith Title",
+        "keywords": "faith",
+        "description": "faith page",
+        "id": 8
     }
 ]

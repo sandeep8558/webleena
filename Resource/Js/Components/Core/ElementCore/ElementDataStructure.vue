@@ -99,7 +99,7 @@
 
         <div class="row px-5">
             <div class="col-12">
-                <button class="btn btn-primary" :disabled="invalid" @click="createElement()">Create Element</button>
+                <button class="btn btn-primary" :disabled="invalid" @click="createElement()">{{ element.id == null ? 'Create' : 'Update' }} Element</button>
             </div>
         </div>
 
@@ -175,10 +175,15 @@ export default {
 
         createElement: async function(){
             let fd = new FormData();
+            fd.append('id', this.element.id);
             fd.append('name', this.element.name);
             fd.append('type', this.element.type);
             fd.append('fields', JSON.stringify(this.element.fields));
-            let res = await axios.post('/api/element/create', fd).then(res => res.key);
+            if(this.element.id == null){
+                let res = await axios.post('/api/element/create', fd).then(res => res.key);
+            } else {
+                let res = await axios.post('/api/element/update', fd).then(res => res.key);
+            }
             this.reset();
             this.getData();
         },
@@ -229,6 +234,13 @@ export default {
             let url = '/api/data/fields?file=' + this.file;
             let fields = await axios.get(url).then(res => res.data);
             this.fields = fields;
+        },
+
+        async editRow(row){
+            this.element.id = row.id;
+            this.element.name = row.name;
+            this.element.type = row.type;
+            this.element.fields = JSON.parse(row.fields);
         },
 
         async deleteRow(row){

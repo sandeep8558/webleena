@@ -1,10 +1,7 @@
 <template>
     <div>
-        
-        <container v-for="cont in containers" @containerDeleted="contDeleted($event)" :key="cont.id" :login='login' :file="file" :cont="cont"></container>
-
+        <container @added="added($event)" v-for="cont in containers" @containerDeleted="contDeleted($event)" :key="cont.id" :login='login' :file="file" :cont="cont"></container>
         <addcontainer @added="added($event)" :page_id='page_id' :login='login' :file="file"></addcontainer>
-
     </div>
 </template>
 

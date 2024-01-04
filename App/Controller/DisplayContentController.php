@@ -11,7 +11,7 @@ class DisplayContentController extends Controller {
 
     public function rows($request){
         $data = new Data($request['file']);
-        return json_encode($data->rows($request['key'], $request['val']));
+        return json_encode($data->rowsWithChildren($request['key'], $request['val']));
     }
 
     public function all($request){

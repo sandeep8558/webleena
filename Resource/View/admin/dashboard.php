@@ -6,6 +6,4 @@
 
 @section('body')
 
-<crud file="example"></crud>
-
 @endsection('body')

@@ -1,6 +1,6 @@
 <template>
     <div v-if="login" :class="login ? 'container text-center p-3' : 'd-none'">
-        <button @click="addContainer()" class="btn btn-primary">Add Container</button>
+        <button @click="addElement()" class="btn btn-primary">Add Element</button>
     </div>
 </template>
 
@@ -18,23 +18,22 @@ export default {
     },
 
     methods: {
-        async addContainer(){
+        async addElement(){
             let fd = new FormData();
             fd.append('file', this.file);
             fd.append('page_id', this.page_id);
-            fd.append('container_classes', 'p-5 mb-5');
-            fd.append('row_classes', 'p-5');
-            fd.append('full', 'container');
+            fd.append('parent', 0);
+            fd.append('element', 'div');
+            fd.append('classes', 'p-5');
             let res = await axios.post('/api/data/insert', fd).then(res => res.data);
             this.addedEmit();
         },
         addedEmit(){
-            this.$emit('added', 'Container Added');
+            this.$emit('added', 'Element Added');
         }
     },
 
     created: function(){
-        //console.log(this.file);
     },
 
 }
