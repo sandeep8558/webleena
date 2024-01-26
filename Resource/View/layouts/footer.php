@@ -1,0 +1,1 @@
+<containermanager page_id='footer' :login='"<?php echo isset($session->email); ?>"' file="footer"></containermanager>

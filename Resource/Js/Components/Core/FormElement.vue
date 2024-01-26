@@ -7,6 +7,12 @@
       <label :for="key">{{ label }}</label>
     </div>
 
+    <!-- CLASSES -->
+    <div v-if="type=='classes'" class="form-floating">
+      <input type="text" class="form-control" :id="key" placeholder="" :value="modelValue" @input="$emit('update:modelValue', $event.target.value)">
+      <label :for="key">{{ label }}</label>
+    </div>
+
     <!-- DATE -->
     <div v-if="type=='date'" class="form-floating">
       <input type="date" class="form-control" :id="key" placeholder="" :value="modelValue" @input="$emit('update:modelValue', $event.target.value)">

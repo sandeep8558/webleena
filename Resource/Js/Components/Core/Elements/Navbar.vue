@@ -1,5 +1,11 @@
 <template>
     <div>
-        Navbar Component
+        {{ nav }}
     </div>
 </template>
+
+<script>
+export default {
+    props: ['nav'],
+}
+</script>

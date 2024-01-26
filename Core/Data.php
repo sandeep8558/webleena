@@ -24,7 +24,7 @@ class Data {
         /* Data get from json file */
         $this->stored_data = json_decode(file_get_contents($this->json_file), true);
 
-        if($this->type() == "recursive" && $this->stored_data != null){
+        if(($this->type() == "recursive" || $this->type() == "element") && $this->stored_data != null){
 
             /* Cound number of records */
             $this->number_of_records = count($this->stored_data);
@@ -45,6 +45,11 @@ class Data {
             
             $file = fopen($this->json_file, "w");
             fclose($file);
+
+            if($this->type() == "element"){
+                $this->stored_data = [];
+                $this->storeData();
+            }
 
             if($this->type() == "recursive"){
                 $this->stored_data = [];
@@ -181,6 +186,7 @@ class Data {
         $data_with_id_field = $this->setId($pureData);
         array_push($this->stored_data, $data_with_id_field);
         $this->storeData();
+        return $data_with_id_field;
     }
 
     /* Update Data */

@@ -1,3 +1,5 @@
+@import './image.scss';
+
 .border-dasshed-gray {
     min-height: 20px;
     border: 3px dashed #999999;
@@ -10,9 +12,9 @@
 :hover > .grid-select-btn,
 div:hover > .grid-select-btn{
     display: block;
+    z-index: 1000;
 }
 
-p > .grid-select-btn,
 div > .grid-select-btn {
     font-size: 16px !important;
     position: absolute;

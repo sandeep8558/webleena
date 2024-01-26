@@ -1,1 +1,65 @@
-[]
+[
+    {
+        "name": "Header1",
+        "type": "element",
+        "category": "Basic",
+        "fields": "[{\"name\":\"headertext\",\"text\":\"Header Text\",\"type\":\"text\",\"value\":\"\",\"validation\":\"\",\"grid\":\"Yes\",\"form\":\"Yes\"},{\"name\":\"headerclasses\",\"text\":\"Header Classes\",\"type\":\"classes\",\"value\":\"\",\"validation\":\"\",\"grid\":\"Yes\",\"form\":\"Yes\"}]",
+        "id": 1
+    },
+    {
+        "name": "Header2",
+        "type": "element",
+        "category": "Basic",
+        "fields": "[{\"name\":\"headertext\",\"text\":\"Header Text\",\"type\":\"text\",\"value\":\"\",\"validation\":\"\",\"grid\":\"Yes\",\"form\":\"Yes\"},{\"name\":\"headerclasses\",\"text\":\"Header Classes\",\"type\":\"classes\",\"value\":\"\",\"validation\":\"\",\"grid\":\"Yes\",\"form\":\"Yes\"}]",
+        "id": 2
+    },
+    {
+        "name": "Header3",
+        "type": "element",
+        "category": "Basic",
+        "fields": "[{\"name\":\"headertext\",\"text\":\"Header Text\",\"type\":\"text\",\"value\":\"\",\"validation\":\"\",\"grid\":\"Yes\",\"form\":\"Yes\"},{\"name\":\"headerclasses\",\"text\":\"Header Classes\",\"type\":\"classes\",\"value\":\"\",\"validation\":\"\",\"grid\":\"Yes\",\"form\":\"Yes\"}]",
+        "id": 3
+    },
+    {
+        "name": "Header4",
+        "type": "element",
+        "category": "Basic",
+        "fields": "[{\"name\":\"headertext\",\"text\":\"Header Text\",\"type\":\"text\",\"value\":\"\",\"validation\":\"\",\"grid\":\"Yes\",\"form\":\"Yes\"},{\"name\":\"headerclasses\",\"text\":\"Header Classes\",\"type\":\"classes\",\"value\":\"\",\"validation\":\"\",\"grid\":\"Yes\",\"form\":\"Yes\"}]",
+        "id": 4
+    },
+    {
+        "name": "Header5",
+        "type": "element",
+        "category": "Basic",
+        "fields": "[{\"name\":\"headertext\",\"text\":\"Header Text\",\"type\":\"text\",\"value\":\"\",\"validation\":\"\",\"grid\":\"Yes\",\"form\":\"Yes\"},{\"name\":\"headerclasses\",\"text\":\"Header Classes\",\"type\":\"classes\",\"value\":\"\",\"validation\":\"\",\"grid\":\"Yes\",\"form\":\"Yes\"}]",
+        "id": 5
+    },
+    {
+        "name": "Header6",
+        "type": "element",
+        "category": "Basic",
+        "fields": "[{\"name\":\"headertext\",\"text\":\"Header Text\",\"type\":\"text\",\"value\":\"\",\"validation\":\"\",\"grid\":\"Yes\",\"form\":\"Yes\"},{\"name\":\"headerclasses\",\"text\":\"Header Classes\",\"type\":\"classes\",\"value\":\"\",\"validation\":\"\",\"grid\":\"Yes\",\"form\":\"Yes\"}]",
+        "id": 6
+    },
+    {
+        "name": "Paragraph",
+        "type": "element",
+        "category": "Basic",
+        "fields": "[{\"name\":\"paragraph\",\"text\":\"Paragraph\",\"type\":\"textarea\",\"value\":\"\",\"validation\":\"\",\"grid\":\"Yes\",\"form\":\"Yes\"},{\"name\":\"classes\",\"text\":\"Classes\",\"type\":\"classes\",\"value\":\"\",\"validation\":\"\",\"grid\":\"Yes\",\"form\":\"Yes\"}]",
+        "id": 7
+    },
+    {
+        "name": "Image",
+        "type": "element",
+        "category": "Basic",
+        "fields": "[{\"name\":\"src\",\"text\":\"Source\",\"type\":\"image\",\"value\":\"\",\"validation\":\"\",\"grid\":\"Yes\",\"form\":\"Yes\"},{\"name\":\"classes\",\"text\":\"Classes\",\"type\":\"classes\",\"value\":\"\",\"validation\":\"\",\"grid\":\"Yes\",\"form\":\"Yes\"},{\"name\":\"alt\",\"text\":\"Atternate Text\",\"type\":\"text\",\"value\":\"\",\"validation\":\"\",\"grid\":\"Yes\",\"form\":\"Yes\"}]",
+        "id": 8
+    },
+    {
+        "name": "Button",
+        "type": "element",
+        "category": "Basic",
+        "fields": "[{\"name\":\"buttontext\",\"text\":\"Button Text\",\"type\":\"text\",\"value\":\"\",\"validation\":\"\",\"grid\":\"Yes\",\"form\":\"Yes\"},{\"name\":\"classes\",\"text\":\"Classess\",\"type\":\"classes\",\"value\":\"\",\"validation\":\"\",\"grid\":\"Yes\",\"form\":\"Yes\"},{\"name\":\"link\",\"text\":\"Link\",\"type\":\"text\",\"value\":\"\",\"validation\":\"\",\"grid\":\"Yes\",\"form\":\"Yes\"}]",
+        "id": 9
+    }
+]

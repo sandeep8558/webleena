@@ -12,13 +12,13 @@ class ElementController extends Controller {
 
     public function create($request){
         $element = new Element();
-        $r = $element->create($request['name'], $request['type'], $request['fields']);
+        $r = $element->create($request['name'], $request['type'], $request['category'], $request['fields']);
         return json_encode($r);
     }
 
     public function update($request){
         $element = new Element();
-        $r = $element->update($request['id'], $request['name'], $request['type'], $request['fields']);
+        $r = $element->update($request['id'], $request['name'], $request['type'], $request['category'], $request['fields']);
         return json_encode($r);
     }
 

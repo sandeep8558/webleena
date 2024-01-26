@@ -1,0 +1,14 @@
+[
+    {
+        "buttontext": "About Us",
+        "classes": "btn btn-dark",
+        "link": "\/about",
+        "id": 1
+    },
+    {
+        "buttontext": "Contact Us",
+        "classes": "btn btn-info",
+        "link": "\/contact",
+        "id": 2
+    }
+]

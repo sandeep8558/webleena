@@ -39,5 +39,23 @@ $element = [
             "grid" => "Yes",
             "form" => "Yes"
         ],
+        [
+            "name" => "key",
+            "text" => "Key",
+            "type" => "text",
+            "value" => "",
+            "validation" => "",
+            "grid" => "Yes",
+            "form" => "Yes"
+        ],
+        [
+            "name" => "val",
+            "text" => "Value",
+            "type" => "text",
+            "value" => "",
+            "validation" => "",
+            "grid" => "Yes",
+            "form" => "Yes"
+        ],
     ]
 ];

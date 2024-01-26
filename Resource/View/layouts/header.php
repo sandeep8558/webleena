@@ -1,0 +1,1 @@
+<containermanager page_id='header' :login='"<?php echo isset($session->email); ?>"' file="header"></containermanager>

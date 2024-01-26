@@ -1,0 +1,20 @@
+[
+    {
+        "src": "\/images\/1704529945_773129_sarvoday.webp",
+        "classes": "image image-cover image-hd",
+        "alt": "Sarvoday",
+        "id": 1
+    },
+    {
+        "src": "\/images\/1704549899_561284_pexels-pixabay-358457.jpg",
+        "classes": "image image-cover image-hd shadow",
+        "alt": "Nature",
+        "id": 2
+    },
+    {
+        "src": "\/images\/1705852208_357483_lemon.jpg",
+        "classes": "image image-hd image-cover",
+        "alt": "Lemon",
+        "id": 3
+    }
+]

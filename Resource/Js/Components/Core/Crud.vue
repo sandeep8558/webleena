@@ -2,7 +2,7 @@
     <div class="">
         
         <!-- Header Part -->
-        <div class="row align-items-center mx-0 py-4 shadow mb-5">
+        <div v-if="(istitle == undefined ? true : istitle)" class="row align-items-center mx-0 py-4 shadow mb-5">
             <div class="col px-5 text-capitalize"><h4>{{ pageTitle }}</h4></div>
             <div v-if="typ != 'static'" class="col-auto px-5 text-end">
                 <button @click="isForm = !isForm" class="btn" :class="btnClass">{{ btnText }}</button>
@@ -10,7 +10,7 @@
         </div>
 
         <!-- Form -->
-        <div v-if="isForm" class="container-fluid px-5 mb-5">
+        <div v-if="(isform == undefined ? true : isform) && isForm" class="container-fluid px-5 mb-5">
             <div class="shadow py-5 px-4 row m-0 rounded-3">
                 
                 <template v-for="fld in fields" :key="fld.name">
@@ -27,7 +27,7 @@
         </div>
 
         <!-- Data Table -->
-        <div v-if="typ != 'static'" class="container-fluid px-5">
+        <div v-if="(isgrid == undefined ? true : isgrid) && typ != 'static'" class="container-fluid px-5">
             <div class="table-responsive">
                 <table class="table">
                     <thead :class="tableClass">
@@ -70,7 +70,7 @@ import axios from 'axios';
 import FormElement from './FormElement.vue';
 export default {
 
-    props: ['file', 'dir', 'title', 'btn', 'color'],
+    props: ['file', 'dir', 'title', 'btn', 'color', 'isgrid', 'istitle', 'isform'],
 
     components: {
         'formelement': FormElement,
@@ -198,8 +198,8 @@ export default {
 
         async insertRow(frm){
             let data = await axios.post('/api/data/insert', frm).then(res => res.data);
-            this.rows = data;
-            
+            this.getData();
+            this.$emit('inserted', data);
         },
 
         async updateRow(frm){

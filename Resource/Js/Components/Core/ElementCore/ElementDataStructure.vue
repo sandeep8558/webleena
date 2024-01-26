@@ -10,14 +10,28 @@
                 </div>
             </div>
 
-            <div class="col-6">
+            <div class="col-3">
                 <div class="form-floating">
                     <select class="form-select" id="floatingSelect" v-model="element.type">
                         <option value="">Element Type</option>
-                        <option value="static">Static</option>
+                        <option value="element">Element</option>
                         <option value="recursive">Recursive</option>
+                        <option value="static">Static</option>
+                        <option value="form">Form</option>
                     </select>
                     <label for="floatingSelect">Element Type</label>
+                </div>
+            </div>
+
+            <div class="col-3">
+                <div class="form-floating">
+                    <select class="form-select" id="floatingSelect" v-model="element.category">
+                        <option value="">Element Category</option>
+                        <option value="Layout">Layout</option>
+                        <option value="Basic">Basic</option>
+                        <option value="Complex">Complex</option>
+                    </select>
+                    <label for="floatingSelect">Element Category</label>
                 </div>
             </div>
 
@@ -44,6 +58,7 @@
                         <option value="image">Image</option>
                         <option value="file">File</option>
                         <option value="select">Select</option>
+                        <option value="classes">Classes</option>
                     </select>
                     <select class="form-select" v-model="elm.grid">
                         <option selected>Is In Grid</option>
@@ -81,6 +96,7 @@
                         <option value="image">Image</option>
                         <option value="file">File</option>
                         <option value="select">Select</option>
+                        <option value="classes">Classes</option>
                     </select>
                     <select class="form-select" v-model="field.grid">
                         <option selected>Is In Grid</option>
@@ -128,8 +144,9 @@
                                 </td>
                             </template>
 
-                            <td class="text-center" style="width: 125px; min-width: 125px;">
-                                <button @click="editRow(row)" class="btn btn-sm btn-warning"><i class="bi bi-pen"></i></button>
+                            <td class="text-center" style="width: 135px; min-width: 135px;">
+                                <a :href="'/admin/element/crud?elm=' + row.name" target="" title="CRUD" class="btn btn-sm btn-info"><i class="bi bi-list-ul"></i></a>
+                                <button @click="editRow(row)" class="btn btn-sm btn-warning ms-2"><i class="bi bi-pen"></i></button>
                                 <button @click="deleteRow(row)" class="btn btn-sm btn-danger ms-2"><i class="bi bi-trash"></i></button>
                             </td>
                         </tr>
@@ -153,7 +170,8 @@ export default {
             element: {
                 id: null,
                 name: '',
-                type: 'static',
+                type: 'element',
+                category: 'Basic',
                 fields: []
             },
             field: {
@@ -178,6 +196,7 @@ export default {
             fd.append('id', this.element.id);
             fd.append('name', this.element.name);
             fd.append('type', this.element.type);
+            fd.append('category', this.element.category);
             fd.append('fields', JSON.stringify(this.element.fields));
             if(this.element.id == null){
                 let res = await axios.post('/api/element/create', fd).then(res => res.key);

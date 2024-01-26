@@ -46,4 +46,8 @@ class Admin extends Controller {
         View::render('admin/elements');
     }
 
+    public function element_crud($request){
+        View::render('admin/element', ['request' => $request]);
+    }
+
 }

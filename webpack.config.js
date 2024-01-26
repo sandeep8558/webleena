@@ -18,5 +18,10 @@ module.exports = {
     },
     plugins: [
         new VueLoaderPlugin()
-    ]
+    ],
+    performance: {
+        maxAssetSize: 512000,
+        maxEntrypointSize: 512000,
+        hints: "warning"
+    }
 };

@@ -18,6 +18,7 @@ Route::get('/admin/pages', [App\Controller\Admin::class, 'pages']);
 Route::get('/admin/navigation', [App\Controller\Admin::class, 'navigation']);
 Route::get('/admin/layout', [App\Controller\Admin::class, 'layout']);
 Route::get('/admin/elements', [App\Controller\Admin::class, 'elements']);
+Route::get('/admin/element/crud', [App\Controller\Admin::class, 'element_crud']);
 
 /* API Calls | Authenticated API Calls */
 Route::get('/api/data/rows', [App\Controller\CrudController::class, 'rows']);

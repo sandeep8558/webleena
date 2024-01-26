@@ -1,0 +1,149 @@
+$sm: 576px;
+$md: 768px;
+$lg: 992px;
+$xl: 1200px;
+$xxl: 1400px;
+
+$breakpoints: (
+    sm: "min-width: "#{$sm},
+    md: "min-width: "#{$md},
+    lg: "min-width: "#{$lg},
+    xl: "min-width: "#{$xl},
+    xxl: "min-width: "#{$xxl},
+);
+
+@mixin breakpoint($bp){
+    $my-map: map-get($breakpoints, $bp);
+    @if $my-map {
+        @media(#{$my-map}){
+            @content;
+        }
+    }
+}
+
+/* Images Styling Start */
+.image {
+    position: relative;
+    overflow: hidden;
+    text-align: left;
+}
+
+.image img {
+    position: absolute;
+    height: 100%;
+    width: 100%;
+    -o-object-position: center;
+    object-position: center;
+}
+
+.image-none img {
+    -o-object-fit: none;
+    object-fit: none;
+}
+
+.image-contain img {
+    -o-object-fit: contain;
+    object-fit: contain;
+}
+
+.image-cover img {
+    -o-object-fit: cover;
+    object-fit: cover;
+}
+
+.image-fill img {
+    -o-object-fit: fill;
+    object-fit: fill;
+}
+
+.image-scale-down img {
+    -o-object-fit: scale-down;
+    object-fit: scale-down;
+}
+
+/* Standard Aspect Ratios */
+.image-title {
+    padding-bottom: 25%;
+}
+.image-header {
+    padding-bottom: 35%;
+}
+.image-banner {
+    padding-bottom: 50%;
+}
+.image-wide {
+    padding-bottom: 54%;
+}
+.image-hd {
+    padding-bottom: 56.25%;
+}
+.image-standard {
+    padding-bottom: 60%;
+}
+.image-still {
+    padding-bottom: 66.66%;
+}
+.image-tv {
+    padding-bottom: 75%;
+}
+.image-camera {
+    padding-bottom: 80%;
+}
+.image-square {
+    padding-bottom: 100%;
+}
+.image-closeup {
+    padding-bottom: 125%;
+}
+.image-portrait {
+    padding-bottom: 135%;
+}
+.image-vertical {
+    padding-bottom: 150%;
+}
+
+@each $key, $val in $breakpoints{
+    @include breakpoint(#{$key}){
+
+        .image-#{$key}-title {
+            padding-bottom: 25%;
+        }
+        .image-#{$key}-header {
+            padding-bottom: 35%;
+        }
+        .image-#{$key}-banner {
+            padding-bottom: 50%;
+        }
+        .image-#{$key}-wide {
+            padding-bottom: 54%;
+        }
+        .image-#{$key}-hd {
+            padding-bottom: 56.25%;
+        }
+        .image-#{$key}-standard {
+            padding-bottom: 60%;
+        }
+        .image-#{$key}-still {
+            padding-bottom: 66.66%;
+        }
+        .image-#{$key}-tv {
+            padding-bottom: 75%;
+        }
+        .image-#{$key}-camera {
+            padding-bottom: 80%;
+        }
+        .image-#{$key}-square {
+            padding-bottom: 100%;
+        }
+        .image-#{$key}-closeup {
+            padding-bottom: 125%;
+        }
+        .image-#{$key}-portrait {
+            padding-bottom: 135%;
+        }
+        .image-#{$key}-vertical {
+            padding-bottom: 150%;
+        }
+
+    }
+}

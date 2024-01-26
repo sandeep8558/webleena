@@ -1,6 +1,6 @@
 <template>
     <div v-if="login" :class="login ? 'container text-center p-3' : 'd-none'">
-        <button @click="addElement()" class="btn btn-primary">Add Element</button>
+        <button @click="addElement()" class="btn btn-primary">Add {{ file == 'header' ? 'Header' : (file == 'footer' ? 'Footer' : '') }} Element</button>
     </div>
 </template>
 

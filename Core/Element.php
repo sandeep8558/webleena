@@ -11,7 +11,7 @@ class Element {
         $this->file = 'elements';
     }
 
-    public function create(string $name, string $type, string $fields){
+    public function create(string $name, string $type, string $category, string $fields){
         /* 
         1. Create PHP File
         2. Save data in data file
@@ -46,6 +46,7 @@ class Element {
         $data->insert([
             'name' => $name,
             'type' => $type,
+            'category' => $category,
             'fields' => $fields,
         ]);
 
@@ -53,7 +54,7 @@ class Element {
 
     }
 
-    public function update(int $id, string $name, string $type, string $fields){
+    public function update(int $id, string $name, string $type, string $category, string $fields){
         /* 
         1. Create PHP File
         2. Save data in data file
@@ -85,9 +86,17 @@ class Element {
         );
 
         $data = new Data('elements');
+        $old = $data->get($id);
+
+        /* Delete File */
+        if($name != $old['name']){
+            $this->delete($old['name']);
+        }
+
         $data->update($id, [
             'name' => $name,
             'type' => $type,
+            'category' => $category,
             'fields' => $fields,
         ]);
 

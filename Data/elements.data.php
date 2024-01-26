@@ -22,6 +22,15 @@ $element = [
             "form" => "Yes"
         ],
         [
+            "name" => "category",
+            "text" => "Element Category",
+            "type" => "text",
+            "value" => "",
+            "validation" => "",
+            "grid" => "Yes",
+            "form" => "Yes"
+        ],
+        [
             "name" => "fields",
             "text" => "Fields",
             "type" => "text",

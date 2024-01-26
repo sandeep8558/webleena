@@ -93,7 +93,7 @@ class CrudController extends Controller {
         $newRequest = $this->uploadFiles($request);
 
         $pureRequest = $this->purify($request['file'], $newRequest);
-        $data->insert($pureRequest);
+        $inserted = $data->insert($pureRequest);
 
         $response = null;
         if($request['file'] == 'content'){
@@ -102,7 +102,7 @@ class CrudController extends Controller {
             $response = $data->all();
         }
 
-        return json_encode($response);
+        return json_encode($inserted);
     }
 
     public function update($request){
